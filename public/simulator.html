@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="naver-site-verification" content="05abcbf8528b811160f9277abd00ca28ed23e11e" />
+<title>AI 제어 시뮬레이터 | 가온연구소 GAON Lab</title>
+<meta name="description" content="센서 수와 수집 주기, 제어 방식을 바꿔 보며 AI 제어 효과를 확인합니다.">
+<meta property="og:title" content="AI 제어 시뮬레이터 | 가온연구소 GAON Lab">
+<meta property="og:description" content="센서 수와 수집 주기, 제어 방식을 바꿔 보며 AI 제어 효과를 확인합니다.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/hero.jpg">
+<meta name="theme-color" content="#0B1736">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
+<link rel="stylesheet" href="style.css?v=9">
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+<header class="site-header over">
+  <div class="wrap">
+    <a class="brand-logo" href="index.html" aria-label="가온연구소 홈"><img class="lg-c" src="assets/logo.png" alt="가온연구소 GAON Management Consulting" width="168" height="36"><img class="lg-w" src="assets/logo-white.png" alt="" width="168" height="36"></a>
+    <div class="lang m"><button type="button" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택 Language" class="notranslate" translate="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span data-cur>한국어</span></button><div class="lang-panel notranslate" translate="no"></div></div>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="gnav" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+    <nav class="gnav" id="gnav" aria-label="주 메뉴">
+      <a href="about.html">회사 소개</a>
+      <div class="dd"><button type="button" aria-haspopup="true">서비스<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="mega"><a href="smart-manufacturing.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l5 3V10l5 3V6l8 4v11z"/><path d="M7 17h2M12 17h2M17 17h1"/></svg></span><span><b>스마트공장 지원사업 준비</b><span>공정 진단부터 사업계획·구축까지</span></span></a><a href="ai-ax.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 10h4v4h-4zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><span><b>AI 도입 · 업무 자동화</b><span>업무·데이터 진단에서 AI 운영까지</span></span></a><a href="iso-esg.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><span><b>ISO 인증 · ESG 대응</b><span>심사 때만이 아닌, 운영에 남는 체계</span></span></a><a href="consulting.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span><b>경영 진단 · 사업계획</b><span>문제정의부터 실행·성과관리까지</span></span></a><a href="facility.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8h6v13M11 21V3h8v18"/><path d="M14 7h2M14 11h2M14 15h2M7 12h2M7 16h2"/></svg></span><span><b>HACCP·GMP 설계</b><span>공정과 공간을 한 도면에서</span></span></a><a href="education.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/></svg></span><span><b>직원 교육</b><span>현업이 바뀌는 교육 설계</span></span></a><a class="all" href="service.html"><span><b>서비스 전체 보기</b></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+      <div class="dd on"><button type="button" aria-haspopup="true">무료 진단<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="mega small"><a href="check.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-5"/></svg></span><span><b>스마트제조 수준진단</b><span>12문항으로 우리 공장 위치 확인</span></span></a><a href="simulator.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c3 0 3-8 6-8s3 10 6 10 3-6 6-6"/></svg></span><span><b>AI 제어 시뮬레이터</b><span>센서·수집주기와 AI 효과 비교</span></span></a></div></div>
+      <div class="dd"><button type="button" aria-haspopup="true">현장 지식<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="mega small"><a href="industry.html"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l5 3V10l5 3V6l8 4v11z"/><path d="M7 17h2M12 17h2M17 17h1"/></svg></span><span><b>업종별 공정도</b><span>26개 업종 공정을 눌러 보기</span></span></a><a href="knowledge.html#guides"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><span><b>실무 가이드</b><span>평가·심사·PoC에서 보는 것</span></span></a><a href="knowledge.html#glossary"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/></svg></span><span><b>현장 용어 사전</b><span>MES·OEE·GMP 쉬운 설명</span></span></a></div></div>
+      <a href="research.html">연구</a>
+      <div class="lang"><button type="button" aria-haspopup="true" aria-expanded="false" aria-label="언어 선택 Language" class="notranslate" translate="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span data-cur>한국어</span></button><div class="lang-panel notranslate" translate="no"></div></div>
+      <a class="btn primary" href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>상담문의</a>
+    </nav>
+  </div>
+</header>
+<div class="float-cta" aria-label="빠른 상담"><a href="tel:01022443100" aria-label="전화 상담 010-2244-3100"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>전화상담</span></a></div>
+<div id="google_translate_element"></div>
+<main id="main">
+<section class="banner" style="background-image:url(assets/img/robots.jpg)"><div class="wrap"><h1>AI 제어 시뮬레이터</h1><p class="ben">SIMULATOR</p><p class="bsub">결과는 저장되지 않고 개인정보도 받지 않습니다</p></div></section>
+<div class="tabbar"><div class="wrap"><nav class="subtabs" aria-label="무료 진단"><a href="check.html">스마트제조 수준진단</a><a href="simulator.html" aria-current="page">AI 제어 시뮬레이터</a></nav></div></div><section class="sec" style="padding-top:56px">
+  <div class="wrap">
+    <p class="lead" style="margin-bottom:8px">
+      공장에 AI를 넣으면 좋아진다는 말은 절반만 맞습니다.
+      AI는 데이터를 먹고 움직이는 제어 방식이라, <b>먹일 데이터가 없으면 아무 일도 일어나지 않습니다.</b>
+    </p>
+    <p class="lead" style="margin-bottom:34px">
+      아래에서 센서 수와 수집 주기를 바꿔 보십시오.
+      제어 방식만 AI로 올리고 데이터를 그대로 두면 어떤 일이 생기는지 바로 보입니다.
+    </p>
+
+    <div class="sim">
+      <div class="sim-ctrl">
+        <h3>조건을 바꿔 보십시오</h3>
+
+        <div class="ctl">
+          <label for="c1">공정에 붙은 센서 수<b id="v1">3 개</b></label>
+          <input type="range" id="c1" min="0" max="8" step="1" value="3">
+          <p class="hint">온도·압력·진동·전류 등 값을 자동으로 읽어오는 지점의 개수</p>
+        </div>
+
+        <div class="ctl">
+          <label for="c2">데이터 수집 주기<b id="v2">1시간</b></label>
+          <input type="range" id="c2" min="0" max="4" step="1" value="1">
+          <p class="hint">얼마나 자주 값을 기록하는가. 수기 기록은 가장 왼쪽</p>
+        </div>
+
+        <div class="ctl">
+          <label for="c3">제어 방식<b id="v3">규칙 기반</b></label>
+          <input type="range" id="c3" min="0" max="2" step="1" value="1">
+          <p class="hint">사람이 직접 / 정해진 규칙대로 / AI가 예측해서</p>
+        </div>
+
+        <div class="ctl">
+          <label for="c4">작업자 숙련도<b id="v4">보통</b></label>
+          <input type="range" id="c4" min="0" max="2" step="1" value="1">
+          <p class="hint">이상을 알아채고 대응하는 능력</p>
+        </div>
+
+        <button class="btn btn-line" id="reset" type="button" style="margin-top:8px">처음으로</button>
+      </div>
+
+      <div class="sim-view">
+        <h3>제어 구조</h3>
+        <svg id="diag" viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="제어 계층 구조">
+          <defs><style>
+            .box{fill:#fff;stroke:#C6D1DC;stroke-width:1.4}
+            .box.on{stroke:#014299;stroke-width:2}
+            .box.off{stroke-dasharray:5 4}
+            .lbl{font:13px sans-serif;fill:#5D6E80}
+            .lbl.on{fill:#014299;font-weight:700}
+            .ln{stroke:#C6D1DC;stroke-width:1.4;fill:none}
+            .ln.on{stroke:#014299;stroke-width:2}
+            .ln.off{stroke-dasharray:5 4}
+            .sub{font:10px sans-serif;fill:#8A9AA8}
+          </style></defs>
+
+          <rect id="b1" class="box" x="60" y="236" width="320" height="46" rx="3"/>
+          <text class="lbl" id="t1" x="220" y="258" text-anchor="middle">현장 설비 · 센서</text>
+          <text class="sub" id="s1" x="220" y="272" text-anchor="middle">센서 3개</text>
+
+          <rect id="b2" class="box" x="60" y="166" width="320" height="46" rx="3"/>
+          <text class="lbl" id="t2" x="220" y="188" text-anchor="middle">데이터 수집</text>
+          <text class="sub" id="s2" x="220" y="202" text-anchor="middle">1시간 주기</text>
+
+          <rect id="b3" class="box" x="60" y="96" width="320" height="46" rx="3"/>
+          <text class="lbl" id="t3" x="220" y="118" text-anchor="middle">제어 판단</text>
+          <text class="sub" id="s3" x="220" y="132" text-anchor="middle">규칙 기반</text>
+
+          <rect id="b4" class="box" x="60" y="26" width="320" height="46" rx="3"/>
+          <text class="lbl" id="t4" x="220" y="48" text-anchor="middle">개선 · 최적화</text>
+          <text class="sub" id="s4" x="220" y="62" text-anchor="middle">대기</text>
+
+          <path id="l1" class="ln" d="M220 236V212"/>
+          <path id="l2" class="ln" d="M220 166V142"/>
+          <path id="l3" class="ln" d="M220 96V72"/>
+          <path id="fb" class="ln off" d="M380 49h34v187h-34"/>
+          <text class="sub" x="426" y="146" text-anchor="middle" transform="rotate(90 426 146)">되먹임</text>
+        </svg>
+        <p class="note" id="diagNote">점선은 아직 연결되지 않은 구간입니다.</p>
+      </div>
+    </div>
+
+    <div class="sim-out">
+      <div class="gauges">
+        <div class="g"><span class="gl">데이터 충실도</span><span class="gv" id="oQ">0%</span>
+          <span class="gt"><span class="gf" id="fQ"></span></span></div>
+        <div class="g"><span class="gl">제어 실효성</span><span class="gv" id="oE">0%</span>
+          <span class="gt"><span class="gf" id="fE"></span></span></div>
+        <div class="g"><span class="gl">이상 감지까지</span><span class="gv" id="oT">-</span>
+          <span class="gs">문제가 생기고 알아채기까지</span></div>
+        <div class="g"><span class="gl">예상 불량률</span><span class="gv" id="oD">-</span>
+          <span class="gs">기준 공정 대비 추정</span></div>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <p class="disclaimer">
+      이 시뮬레이터는 실제 공정의 수치를 예측하는 도구가 아닙니다.
+      센서 밀도와 수집 주기, 제어 방식 사이의 <b>관계</b>를 눈으로 확인하기 위한 교육용 모형입니다.
+      실제 도입 판단은 현장 진단을 거쳐야 합니다.
+    </p>
+
+    <div class="cta-row" style="margin-top:30px">
+      <a class="btn btn-solid" href="check.html">우리 회사 수준 진단하기</a>
+      <a class="btn btn-line" href="contact.html">도입 상담 문의</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta5" style="background-image:url(assets/img/whiteboard.jpg)"><h2>결과를 들고 상담해 보세요</h2><p>진단 결과를 문의 내용에 붙여 주시면 첫 상담이 빨라집니다.</p>
+<a class="tel" href="tel:01022443100">010-2244-3100</a>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div><img src="assets/logo-white.png" alt="가온연구소" width="168" height="36">
+        <a class="ft-tel" href="tel:01022443100">010-2244-3100</a>
+        <p><a href="mailto:gdistyle@naver.com">gdistyle@naver.com</a></p></div>
+      <div><h3>서비스</h3><ul><li><a href="smart-manufacturing.html">스마트공장 지원사업 준비</a></li><li><a href="budget.html">스마트공방 사업비 계산기</a></li><li><a href="ai-ax.html">AI 도입 · 업무 자동화</a></li><li><a href="iso-esg.html">ISO 인증 · ESG 대응</a></li><li><a href="consulting.html">경영 진단 · 사업계획</a></li><li><a href="facility.html">HACCP·GMP 설계</a></li><li><a href="education.html">직원 교육</a></li></ul></div>
+      <div><h3>무료 진단 · 지식</h3><ul><li><a href="check.html">스마트제조 수준진단</a></li><li><a href="simulator.html">AI 제어 시뮬레이터</a></li><li><a href="industry.html">업종별 공정도</a></li><li><a href="knowledge.html">현장 지식</a></li></ul></div>
+      <div><h3>가온연구소</h3><ul><li><a href="about.html">회사 소개</a></li><li><a href="research.html">연구</a></li><li><a href="contact.html">상담문의</a></li></ul></div>
+    </div>
+    <div class="ft-bottom"><span>가온연구소 · 대표 이지상 · 사업자등록번호 817-18-02449 · 경기도 하남시 대청로22번길 17, 206호</span><span>© 2026 GAON Lab</span></div>
+  </div>
+</footer>
+<script src="assets/data.js?v=11"></script>
+<script src="assets/knowledge.js?v=9"></script>
+<script src="assets/app.js?v=10"></script>
+<script>
+(function(){
+  var CYCLE = [
+    {n:"수기 기록", h:24,  q:0.10},
+    {n:"1시간",     h:1,   q:0.40},
+    {n:"1분",       h:1/60,q:0.70},
+    {n:"10초",      h:1/360,q:0.88},
+    {n:"1초",       h:1/3600,q:1.00}
+  ];
+  var MODE = [
+    {n:"사람이 직접", gain:0.30, need:0.00},
+    {n:"규칙 기반",   gain:0.55, need:0.45},
+    {n:"AI 예측",     gain:0.92, need:0.75}
+  ];
+  var SKILL = [{n:"낮음",k:0.80},{n:"보통",k:1.00},{n:"높음",k:1.15}];
+
+  var $=function(id){return document.getElementById(id);};
+  var c1=$("c1"),c2=$("c2"),c3=$("c3"),c4=$("c4");
+
+  function fmtTime(h){
+    if(h>=24) return Math.round(h/24)+"일";
+    if(h>=1)  return Math.round(h)+"시간";
+    if(h*60>=1) return Math.round(h*60)+"분";
+    return Math.max(1,Math.round(h*3600))+"초";
+  }
+  function setBox(box,txt,sub,on,label,subtext){
+    box.setAttribute("class","box"+(on?" on":" off"));
+    txt.setAttribute("class","lbl"+(on?" on":""));
+    txt.textContent=label;
+    sub.textContent=subtext;
+  }
+
+  function run(){
+    var sensors=+c1.value, cy=CYCLE[+c2.value], md=MODE[+c3.value], sk=SKILL[+c4.value];
+
+    // 데이터 충실도 : 센서 밀도 × 수집 주기
+    var dens = sensors===0 ? 0 : Math.min(1, sensors/6);
+    var quality = dens * cy.q;
+
+    // 제어 실효성 : 필요한 데이터가 없으면 제어 방식이 제 성능을 못 낸다
+    var ratio = md.need===0 ? 1 : Math.min(1, quality/md.need);
+    var floor = md.need===0 ? 0.25 : 0.05;   // 데이터가 필요한 방식은 데이터 없으면 무너진다
+    var eff = md.gain * (floor + (1-floor)*ratio) * sk.k;
+    eff = Math.max(0, Math.min(0.95, eff));
+
+    // 이상 감지 시간 : 수집 주기가 지배한다
+    var detect = cy.h * (md===MODE[2] ? 1.0 : md===MODE[1] ? 1.6 : 2.4) / sk.k;
+    if(sensors===0) detect = 48;
+
+    // 불량률 : 기준 4.0%에서 실효성만큼 줄어든다
+    var defect = 4.0 * (1 - 0.72*eff);
+
+    $("v1").textContent = sensors===0 ? "없음" : sensors+" 개";
+    $("v2").textContent = cy.n;
+    $("v3").textContent = md.n;
+    $("v4").textContent = sk.n;
+
+    $("oQ").textContent = Math.round(quality*100)+"%";
+    $("oE").textContent = Math.round(eff*100)+"%";
+    $("fQ").style.width = Math.round(quality*100)+"%";
+    $("fE").style.width = Math.round(eff*100)+"%";
+    $("oT").textContent = fmtTime(detect);
+    $("oD").textContent = defect.toFixed(1)+"%";
+
+    // 다이어그램
+    setBox($("b1"),$("t1"),$("s1"), sensors>0, "현장 설비 · 센서",
+      sensors===0 ? "센서 없음 · 눈으로 확인" : "센서 "+sensors+"개");
+    setBox($("b2"),$("t2"),$("s2"), quality>0.15, "데이터 수집", cy.n+(cy.h>=24?"":" 주기"));
+    setBox($("b3"),$("t3"),$("s3"), ratio>0.5, "제어 판단",
+      md.n + (ratio<0.5 ? " · 데이터 부족" : ""));
+    var top = eff>0.6 && quality>0.5;
+    setBox($("b4"),$("t4"),$("s4"), top, "개선 · 최적화",
+      top ? "가능" : "데이터가 더 필요합니다");
+
+    $("l1").setAttribute("class","ln"+(sensors>0?" on":" off"));
+    $("l2").setAttribute("class","ln"+(quality>0.15?" on":" off"));
+    $("l3").setAttribute("class","ln"+(ratio>0.5?" on":" off"));
+    $("fb").setAttribute("class","ln"+(top?" on":" off"));
+    $("diagNote").textContent = top
+      ? "네 계층이 모두 이어졌습니다. 되먹임이 돌기 시작합니다."
+      : "점선은 아직 연결되지 않은 구간입니다.";
+
+    // 판정
+    var title, msg, tone;
+    if(sensors===0 || quality<0.15){
+      tone="bad"; title="지금은 무엇을 넣어도 효과가 없습니다";
+      msg="데이터가 사실상 없는 상태입니다. 제어 방식을 AI로 올려도 판단할 근거가 없습니다. 가장 먼저 할 일은 설비 한 대에 값을 읽는 지점을 만드는 것입니다.";
+    } else if(+c3.value===2 && ratio<0.6){
+      tone="bad"; title="AI를 켰지만 절반도 못 쓰고 있습니다";
+      msg="AI 예측 제어는 촘촘한 데이터를 전제로 합니다. 지금 조건에서는 성능의 "+Math.round(ratio*100)+"%만 나옵니다. AI 도입비를 쓰기 전에 수집 주기를 줄이고 센서를 늘리는 편이 같은 돈으로 더 큽니다.";
+    } else if(ratio<0.6){
+      tone="warn"; title="데이터가 제어 방식을 따라가지 못합니다";
+      msg="선택하신 제어 방식이 요구하는 데이터 수준에 미치지 못합니다. 센서를 늘리거나 수집 주기를 줄이면 같은 제어 방식으로도 실효성이 올라갑니다.";
+    } else if(eff<0.55){
+      tone="warn"; title="다음 단계로 올라갈 준비가 되었습니다";
+      msg="데이터는 갖춰졌습니다. 제어 방식을 한 단계 올리면 실효성이 눈에 띄게 올라갑니다. 이 지점이 정부지원사업을 활용하기 가장 좋은 시점입니다.";
+    } else {
+      tone="good"; title="이제 AI가 제 몫을 합니다";
+      msg="데이터와 제어 방식이 맞물렸습니다. 이상 감지까지 "+fmtTime(detect)+", 불량률은 기준 대비 "+Math.round((1-defect/4)*100)+"% 낮아진 조건입니다. 여기서부터는 공정 확대와 예지보전이 다음 과제가 됩니다.";
+    }
+    $("verdict").className = "verdict "+tone;
+    $("verdict").innerHTML = "<h4>"+title+"</h4><p>"+msg+"</p>";
+  }
+
+  [c1,c2,c3,c4].forEach(function(el){ el.addEventListener("input",run); });
+  $("reset").onclick=function(){ c1.value=3;c2.value=1;c3.value=1;c4.value=1;run(); };
+  run();
+})();
+</script>
+</body>
+</html>
