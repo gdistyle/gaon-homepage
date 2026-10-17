@@ -74,7 +74,7 @@ H = H.replace('</head>', style + '</head>')
 
 def card(it):
     return f'''<a class="nw-card" href="#{it['id']}" data-cat="{html.escape(it['category'])}">
-<span class="nw-thumb"><img src="assets/img/{it['img']}.jpg" alt="" loading="lazy"><span class="nw-cat">{html.escape(it['category'])}</span></span>
+<span class="nw-thumb"><img src="{html.escape(it['thumb'])}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='assets/img/{it['img']}.jpg'"><span class="nw-cat">{html.escape(it['category'])}</span></span>
 <span class="nw-body"><span class="nw-date">{it['date'].replace('-', '.')} · {html.escape(it['source'])}</span>
 <h3>{html.escape(it['title'])}</h3><p>{html.escape(it['summary'])}</p><span class="nw-more">글 읽기 →</span></span></a>'''
 
@@ -99,13 +99,13 @@ main = f'''<main id="main">
 <div class="tabbar"><div class="wrap"><nav class="subtabs" aria-label="목차"><a href="#ai">AI 소식</a><a href="#biz">컨설팅 소식</a></nav></div></div>
 {block("ai", AI, CATS_AI, "이번 주 AI 소식", "제조 AI·AX 정책·빅테크·로봇 소식 — 카드를 누르면 요약 글과 가온 코멘트가 열립니다", "mist")}
 {block("biz", BIZ, CATS_BIZ, "컨설팅 소식 — 지원사업 · ESG · ISO", "스마트공장 지원사업, 정부 공고, 공급망 ESG, 인증·규제 소식과 준비 포인트", "")}
-<div class="wrap"><p class="nw-note">기사 내용을 요약해 소개하며 원문 저작권은 각 언론사·기관에 있습니다. 가온 코멘트는 가온연구소의 의견입니다. 섬네일은 가온연구소 사진입니다.</p></div>
+<div class="wrap"><p class="nw-note">기사 내용을 요약해 소개하며 원문 저작권은 각 언론사·기관에 있습니다. 가온 코멘트는 가온연구소의 의견입니다. 사진은 각 기사의 대표 사진이며 저작권은 해당 언론사·촬영자에 있습니다.</p></div>
 <section class="cta5" style="background-image:url(assets/img/whiteboard.jpg)"><h2>뉴스는 많은데 우리 회사는 어디서부터?</h2><p>업무 하나, 공정 하나부터 함께 정리합니다.</p>
 <a class="tel" href="tel:01022443100">010-2244-3100</a>
 </section>
 </main>
 <div class="nw-post" id="nwPost" aria-hidden="true"><article class="nw-art" role="dialog" aria-modal="true" aria-labelledby="nwTitle">
-<div class="nw-hero"><img id="nwImg" alt=""><button class="nw-x" type="button" aria-label="닫기" id="nwClose">×</button></div>
+<div class="nw-hero"><img id="nwImg" alt="" referrerpolicy="no-referrer"><button class="nw-x" type="button" aria-label="닫기" id="nwClose">×</button></div>
 <div class="nw-in"><div class="nw-crumb"><span class="nw-cat" id="nwCat"></span><span id="nwMeta"></span></div>
 <h1 id="nwTitle"></h1><p class="nw-lead" id="nwLead"></p><div class="nw-text" id="nwText"></div>
 <div class="nw-cmt"><h4>가온 코멘트</h4><p id="nwCmt"></p></div>
@@ -118,9 +118,9 @@ var D={data};var M={{}};D.forEach(function(d,i){{M[d.id]=i}});
 var P=document.getElementById('nwPost'),last=null;
 function $(i){{return document.getElementById(i)}}
 function show(id){{var i=M[id];var d=D[i];
-$('nwImg').src='assets/img/'+d.img+'.jpg';$('nwCat').textContent=d.category;$('nwMeta').textContent=d.sec+' · '+d.date.replace(/-/g,'.')+' · '+d.source;
+var im=$('nwImg');im.onerror=function(){{im.onerror=null;im.src='assets/img/'+d.img+'.jpg'}};im.src=d.thumb;$('nwCat').textContent=d.category;$('nwMeta').textContent=d.sec+' · '+d.date.replace(/-/g,'.')+' · '+d.source;
 $('nwTitle').textContent=d.title;$('nwLead').textContent=d.summary;$('nwText').textContent=d.body;$('nwCmt').textContent=d.comment;
-$('nwSrc').textContent='출처: '+d.source;$('nwLink').href=d.url;
+$('nwSrc').textContent='출처: '+d.source+' · '+(d.credit||('사진: '+d.source));$('nwLink').href=d.url;
 var sib=D.filter(function(x){{return x.sec===d.sec}}),k=sib.indexOf(d);
 $('nwPrev').disabled=k<=0;$('nwNext').disabled=k>=sib.length-1;
 $('nwPrev').onclick=function(){{if(k>0)location.hash=sib[k-1].id}};$('nwNext').onclick=function(){{if(k<sib.length-1)location.hash=sib[k+1].id}};
