@@ -10,7 +10,10 @@
   "source": "신아일보",
   "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5072457",
   "thumb": "assets/img/news/biz1.jpg",
-  "credit": "사진: Richter Frank-Jurgen, CC BY-SA 2.0 (Wikimedia Commons)"
+  "credit": "사진: Richter Frank-Jurgen, CC BY-SA 2.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz1.jpg",
+  "kicker": "점프업 220개사",
+  "hook": "중견기업 도약\n지원 모집"
  },
  {
   "date": "2026-10-16",
@@ -23,7 +26,10 @@
   "source": "파이낸셜뉴스",
   "url": "https://fnnews.com/news/202610151635534295",
   "thumb": "assets/img/news/biz2.jpg",
-  "credit": "사진: R'lyeh Imaging, CC BY 2.0 (Wikimedia Commons)"
+  "credit": "사진: R'lyeh Imaging, CC BY 2.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz2.jpg",
+  "kicker": "",
+  "hook": ""
  },
  {
   "date": "2026-10-15",
@@ -36,7 +42,10 @@
   "source": "한국사회적경제신문",
   "url": "https://www.ksen.co.kr/news/article.html?no=223018",
   "thumb": "assets/img/news/biz3.jpg",
-  "credit": "사진: Foluisongee, CC BY-SA 3.0 (Wikimedia Commons)"
+  "credit": "사진: Foluisongee, CC BY-SA 3.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz3.jpg",
+  "kicker": "중대산업재해",
+  "hook": "사업장 37곳\n명단 공표"
  },
  {
   "date": "2026-10-15",
@@ -49,7 +58,10 @@
   "source": "신아일보",
   "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5071914",
   "thumb": "assets/img/news/biz4.jpg",
-  "credit": "사진: EngelGMA, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: EngelGMA, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz4.jpg",
+  "kicker": "도입기업 32%",
+  "hook": "스마트공장\n유지보수가 과제"
  },
  {
   "date": "2026-10-15",
@@ -62,7 +74,10 @@
   "source": "뉴스후플러스",
   "url": "https://www.newswhoplus.com/news/articleView.html?idxno=71731",
   "thumb": "assets/img/news/biz5.jpg",
-  "credit": "사진: RG72, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: RG72, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz5.jpg",
+  "kicker": "중기부",
+  "hook": "스마트공장\n제조AI로 고도화"
  },
  {
   "date": "2026-10-15",
@@ -75,7 +90,10 @@
   "source": "뉴스핌",
   "url": "https://www.newspim.com/news/view/20261015000572",
   "thumb": "assets/img/news/biz6.jpg",
-  "credit": "사진: EmDee, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: EmDee, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz6.jpg",
+  "kicker": "EU 공급망 실사",
+  "hook": "결과보다\n조치 입증이 핵심"
  },
  {
   "date": "2026-10-14",
@@ -88,7 +106,10 @@
   "source": "오늘지원(기업마당 공고)",
   "url": "https://todayjiwon.co.kr/programs/0eeae3c5-0e84-4b9b-8d42-5b6c64ff7093",
   "thumb": "assets/img/news/biz7.jpg",
-  "credit": "사진: OIST from Onna Village, Japan, CC BY 2.0 (Wikimedia Commons)"
+  "credit": "사진: OIST from Onna Village, Japan, CC BY 2.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz7.jpg",
+  "kicker": "지역거점 AX R&D",
+  "hook": "신규 과제\n공고 시작"
  },
  {
   "date": "2026-10-14",
@@ -101,7 +122,10 @@
   "source": "에너지데일리",
   "url": "https://energydaily.co.kr/news/articleView.html?idxno=204038",
   "thumb": "assets/img/news/biz8.jpg",
-  "credit": "사진: Wvdp, CC0 (Wikimedia Commons)"
+  "credit": "사진: Wvdp, CC0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz8.jpg",
+  "kicker": "중소조선 지원",
+  "hook": "조선산업\n국가전략산업으로"
  },
  {
   "date": "2026-10-14",
@@ -114,7 +138,10 @@
   "source": "푸드투데이",
   "url": "https://www.foodtoday.or.kr/news/article.html?no=208770",
   "thumb": "assets/img/news/biz9.jpg",
-  "credit": "사진: frakorea, CC BY 2.0 (Wikimedia Commons)"
+  "credit": "사진: frakorea, CC BY 2.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz9.jpg",
+  "kicker": "식약처 국감",
+  "hook": "HACCP 관리\n도마에"
  },
  {
   "date": "2026-10-13",
@@ -127,7 +154,10 @@
   "source": "한국경제",
   "url": "https://www.hankyung.com/article/202610138070g",
   "thumb": "assets/img/news/biz10.jpg",
-  "credit": "사진: Wpcpey, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Wpcpey, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz10.jpg",
+  "kicker": "롯데면세점",
+  "hook": "협력사 ESG\n대출 우대까지"
  },
  {
   "date": "2026-10-13",
@@ -140,7 +170,10 @@
   "source": "푸드투데이",
   "url": "https://www.foodtoday.or.kr/news/article.html?no=208754",
   "thumb": "assets/img/news/biz11.jpg",
-  "credit": "사진: Ark. Agricultural Experiment Station, CC BY-SA 2.0 (Wikimedia Commons)"
+  "credit": "사진: Ark. Agricultural Experiment Station, CC BY-SA 2.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz11.jpg",
+  "kicker": "글로벌 해썹",
+  "hook": "HACCP\n현장 설명회"
  },
  {
   "date": "2026-10-12",
@@ -153,7 +186,10 @@
   "source": "서울경제",
   "url": "https://m.sedaily.com/article/20100273",
   "thumb": "assets/img/news/biz12.jpg",
-  "credit": "사진: Busan Metropolitan city, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Busan Metropolitan city, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz12.jpg",
+  "kicker": "15개국 170개사",
+  "hook": "조선·해양\n수출길 넓힌다"
  },
  {
   "date": "2026-10-06",
@@ -166,7 +202,10 @@
   "source": "법률신문",
   "url": "https://www.lawtimes.co.kr/news/articleView.html?idxno=227295",
   "thumb": "assets/img/news/biz13.jpg",
-  "credit": "사진: CEphoto, Uwe Aranas, CC BY-SA 3.0 (Wikimedia Commons)"
+  "credit": "사진: CEphoto, Uwe Aranas, CC BY-SA 3.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz13.jpg",
+  "kicker": "",
+  "hook": ""
  },
  {
   "date": "2026-10-06",
@@ -179,7 +218,10 @@
   "source": "헬로티",
   "url": "https://www.hellot.net/news/article.html?no=115294",
   "thumb": "assets/img/news/biz14.jpg",
-  "credit": "사진: DAMS Library, CC BY 2.0 (Wikimedia Commons)"
+  "credit": "사진: DAMS Library, CC BY 2.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz14.jpg",
+  "kicker": "ESG 공시 의무화",
+  "hook": "공급망 中企\n영향은?"
  },
  {
   "date": "2026-10-02",
@@ -192,7 +234,10 @@
   "source": "서울경제TV",
   "url": "https://www.sentv.co.kr/article/view/sentv202610020149",
   "thumb": "assets/img/news/biz15.jpg",
-  "credit": "사진: U.S. Embassy Dhaka, Public domain (Wikimedia Commons)"
+  "credit": "사진: U.S. Embassy Dhaka, Public domain (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz15.jpg",
+  "kicker": "ISO 3종 인증",
+  "hook": "안전부터\n청렴까지"
  },
  {
   "date": "2026-09-16",
@@ -205,7 +250,10 @@
   "source": "웹이코노미",
   "url": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2307655",
   "thumb": "assets/img/news/biz16.jpg",
-  "credit": "사진: Mykim5902, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Mykim5902, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz16.jpg",
+  "kicker": "창원",
+  "hook": "조선해양\n수출상담회"
  },
  {
   "date": "2026-09-15",
@@ -218,7 +266,10 @@
   "source": "뉴스핌",
   "url": "https://www.newspim.com/news/view/20260915000176",
   "thumb": "assets/img/news/biz17.jpg",
-  "credit": "사진: MatthiasKabel, CC BY-SA 3.0 (Wikimedia Commons)"
+  "credit": "사진: MatthiasKabel, CC BY-SA 3.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz17.jpg",
+  "kicker": "충주 K-Food",
+  "hook": "식품 스마트공장\n벤치마킹"
  },
  {
   "date": "2026-09-02",
@@ -231,7 +282,10 @@
   "source": "정책브리핑",
   "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148971088",
   "thumb": "assets/img/news/biz18.jpg",
-  "credit": "사진: Minseong Kim, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Minseong Kim, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz18.jpg",
+  "kicker": "18조 724억 원",
+  "hook": "2027 중기부\n역대 최대 예산"
  },
  {
   "date": "2026-09-02",
@@ -244,7 +298,10 @@
   "source": "미디어펜",
   "url": "https://www.mediapen.com/news/view/1120746",
   "thumb": "assets/img/news/biz19.jpg",
-  "credit": "사진: Marek Ślusarczyk (Tupungato), CC BY 3.0 (Wikimedia Commons)"
+  "credit": "사진: Marek Ślusarczyk (Tupungato), CC BY 3.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz19.jpg",
+  "kicker": "EU CBAM",
+  "hook": "탄소 증명해야\n수출 가능"
  },
  {
   "date": "2026-08-20",
@@ -257,6 +314,9 @@
   "source": "에너지데일리",
   "url": "https://www.energydaily.co.kr/news/articleView.html?idxno=202361",
   "thumb": "assets/img/news/biz20.jpg",
-  "credit": "사진: Ferrowohlen, CC BY-SA 3.0 (Wikimedia Commons)"
+  "credit": "사진: Ferrowohlen, CC BY-SA 3.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/biz20.jpg",
+  "kicker": "ESG·탄소규제",
+  "hook": "공급망 데이터\n표준이 시급"
  }
 ]

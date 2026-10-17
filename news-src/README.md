@@ -10,7 +10,10 @@
 - **언론사·기관·기업 사진(기사 대표 사진 og:image 포함)은 절대 쓰지 않음** — 내려받기·직접 불러오기 모두 금지
 - 쓸 수 있는 사진: Wikimedia Commons / Openverse의 자유 이용 사진만 — CC0, 퍼블릭 도메인, CC BY, CC BY-SA (NC·ND 금지)
 - 사람 얼굴이 크게 나온 사진, 로고·상표가 주인공인 사진, 스크린샷, 표·그래프·글자 카드는 피함
-- 960×600(16:10)으로 잘라 `public/assets/img/news/<기사id>.jpg`에 저장, `thumb='assets/img/news/<기사id>.jpg'`
+- 원본 사진은 `public/assets/img/news/photo/<이름>.jpg`(960×600)에 저장 → 항목의 `photo`에 경로 기입
+- 섬네일 목적 = **딱 보고 클릭하고 싶게.** 사진만으로 내용이 바로 보이면 `hook` 빈 값(사진만), 아니면 `kicker`(짧은 꼬리표·숫자, 12자 안팎) + `hook`(2줄, 줄당 10자 안팎, 줄바꿈은 \n) 문구를 넣음
+- `python3 news-src/thumb.py` → 문구 얹은 섬네일 `public/assets/img/news/<이름>.jpg` 생성, `thumb` 자동 기입 (글 상단 큰 사진은 `photo` 사용)
+- 비슷해 보이는 사진(같은 색·같은 물체·같은 구도)은 무조건 피함 — 맞는 공개 사진이 없으면 관련 장면의 다른 공개 사진 + 문구로 구분
 - `credit` = "사진: 작가, 라이선스 (Wikimedia Commons)" — 반드시 기입(CC BY/BY-SA 표시 의무)
 - 모든 기사(누적 전체)에서 사진이 겹치면 안 됨(같은 원본 파일 금지, 비슷한 장면도 피함)
 - `img` = 사진이 안 열릴 때 대신 보일 사이트 사진(public/assets/img 이름)

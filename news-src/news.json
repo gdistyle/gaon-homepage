@@ -10,7 +10,10 @@
   "source": "굿모닝경제",
   "url": "https://www.goodkyung.com/news/articleView.html?idxno=292481",
   "thumb": "assets/img/news/new1.jpg",
-  "credit": "사진: Santeri Viinamäki, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Santeri Viinamäki, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new1.jpg",
+  "kicker": "챗GPT·제미나이",
+  "hook": "음성 AI\n대폭 업그레이드"
  },
  {
   "date": "2026-10-16",
@@ -23,7 +26,10 @@
   "source": "뉴스핌",
   "url": "https://www.newspim.com/news/view/20261016000384",
   "thumb": "assets/img/news/new2.jpg",
-  "credit": "사진: Vincent Diamante, CC BY-SA 2.0 (Wikimedia Commons)"
+  "credit": "사진: Vincent Diamante, CC BY-SA 2.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new2.jpg",
+  "kicker": "로봇 규제특례",
+  "hook": "로봇 中企\n문턱 낮아진다"
  },
  {
   "date": "2026-10-15",
@@ -36,7 +42,10 @@
   "source": "매일일보",
   "url": "https://www.m-i.kr/news/articleView.html?idxno=2006161",
   "thumb": "assets/img/news/new3.jpg",
-  "credit": "사진: Bookmark Content, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Bookmark Content, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new3.jpg",
+  "kicker": "178억 원",
+  "hook": "中企 AI 전환\n지원 본격 착수"
  },
  {
   "date": "2026-10-14",
@@ -49,7 +58,10 @@
   "source": "파이낸셜뉴스",
   "url": "https://www.fnnews.com/news/202610141808586536",
   "thumb": "assets/img/news/new4.jpg",
-  "credit": "사진: KUKA Roboter GmbH, Bachmann, Public domain (Wikimedia Commons)"
+  "credit": "사진: PattyK33, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new4.jpg",
+  "kicker": "제조 AX 기술",
+  "hook": "스스로 일하는\n무인공장"
  },
  {
   "date": "2026-10-14",
@@ -62,7 +74,10 @@
   "source": "전자신문",
   "url": "https://www.etnews.com/20261014000304",
   "thumb": "assets/img/news/new5.jpg",
-  "credit": "사진: MORON, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Rob Bogaerts / Anefo, CC0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new5.jpg",
+  "kicker": "창원 SMATOF 2026",
+  "hook": "제조 AI 미래\n한자리에"
  },
  {
   "date": "2026-10-14",
@@ -75,7 +90,10 @@
   "source": "파이낸셜뉴스",
   "url": "https://www.fnnews.com/news/202610141513148078",
   "thumb": "assets/img/news/new6.jpg",
-  "credit": "사진: Mixabest, Public domain (Wikimedia Commons)"
+  "credit": "사진: Mixabest, Public domain (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new6.jpg",
+  "kicker": "지멘스",
+  "hook": "AI 에이전트가\n공장을 돌린다"
  },
  {
   "date": "2026-10-14",
@@ -88,7 +106,10 @@
   "source": "인천일보",
   "url": "https://www.incheonilbo.com/news/articleView.html?idxno=1334147",
   "thumb": "assets/img/news/new7.jpg",
-  "credit": "사진: SimonWaldherr, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: SimonWaldherr, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new7.jpg",
+  "kicker": "인천 스마트공장 견학",
+  "hook": "로봇과 AI가\n여는 공장"
  },
  {
   "date": "2026-10-13",
@@ -101,7 +122,10 @@
   "source": "전자신문",
   "url": "https://www.etnews.com/20261013000327",
   "thumb": "assets/img/news/new8.jpg",
-  "credit": "사진: Jeff Green/Rethink Robotics, CC BY 4.0 (Wikimedia Commons)"
+  "credit": "사진: Jeff Green/Rethink Robotics, CC BY 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new8.jpg",
+  "kicker": "AI 도입 8% → 40%",
+  "hook": "삼성 노하우로\n스마트공장 AI"
  },
  {
   "date": "2026-10-13",
@@ -114,7 +138,10 @@
   "source": "서울경제",
   "url": "https://www.sedaily.com/article/20100860",
   "thumb": "assets/img/news/new9.jpg",
-  "credit": "사진: Om Umekar, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Om Umekar, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new9.jpg",
+  "kicker": "",
+  "hook": ""
  },
  {
   "date": "2026-10-13",
@@ -127,7 +154,10 @@
   "source": "한국경제",
   "url": "https://www.hankyung.com/article/2026101396571",
   "thumb": "assets/img/news/new10.jpg",
-  "credit": "사진: Ottaluc, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Ottaluc, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new10.jpg",
+  "kicker": "M.AX",
+  "hook": "제조 AI 대전환\nK표준이 완성"
  },
  {
   "date": "2026-10-13",
@@ -140,7 +170,10 @@
   "source": "데이터넷",
   "url": "https://www.datanet.co.kr/news/articleView.html?idxno=215054",
   "thumb": "assets/img/news/new11.jpg",
-  "credit": "사진: National Science Foundation, Public domain (Wikimedia Commons)"
+  "credit": "사진: National Science Foundation, Public domain (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new11.jpg",
+  "kicker": "2028년 초",
+  "hook": "제조 AI\n보안 기준 나온다"
  },
  {
   "date": "2026-10-11",
@@ -153,7 +186,10 @@
   "source": "AI타임스",
   "url": "https://www.aitimes.com/news/articleView.html?idxno=216136",
   "thumb": "assets/img/news/new12.jpg",
-  "credit": "사진: Marvel44, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Marvel44, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new12.jpg",
+  "kicker": "클로드 스타트업",
+  "hook": "무료 혜택\n일시 중단"
  },
  {
   "date": "2026-10-10",
@@ -166,7 +202,10 @@
   "source": "굿모닝경제",
   "url": "https://www.goodkyung.com/news/articleView.html?idxno=292190",
   "thumb": "assets/img/news/new13.jpg",
-  "credit": "사진: Markus Spiske, CC0 (Wikimedia Commons)"
+  "credit": "사진: Artem.G, CC BY 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new13.jpg",
+  "kicker": "오픈AI·구글",
+  "hook": "차세대 AI\n무료 개방 경쟁"
  },
  {
   "date": "2026-10-09",
@@ -179,7 +218,10 @@
   "source": "AI타임스",
   "url": "https://www.aitimes.com/news/articleView.html?idxno=216095",
   "thumb": "assets/img/news/new14.jpg",
-  "credit": "사진: Quentin Gollier, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Quentin Gollier, CC BY-SA 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new14.jpg",
+  "kicker": "앤트로픽",
+  "hook": "데이터 분석·영상\nAI가 만든다"
  },
  {
   "date": "2026-10-08",
@@ -192,7 +234,10 @@
   "source": "인공지능신문",
   "url": "https://www.aitimes.kr/news/articleView.html?idxno=42226",
   "thumb": "assets/img/news/new15.jpg",
-  "credit": "사진: Dr.aleks, CC BY 2.5 (Wikimedia Commons)"
+  "credit": "사진: Dr.aleks, CC BY 2.5 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new15.jpg",
+  "kicker": "KAIST",
+  "hook": "휴머노이드 넘어\n피지컬 AI"
  },
  {
   "date": "2026-10-07",
@@ -205,7 +250,10 @@
   "source": "로봇신문",
   "url": "https://www.irobotnews.com/news/articleView.html?idxno=48875",
   "thumb": "assets/img/news/new16.jpg",
-  "credit": "사진: Romlogistics, CC BY-SA 3.0 (Wikimedia Commons)"
+  "credit": "사진: Romlogistics, CC BY-SA 3.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new16.jpg",
+  "kicker": "롯데글로벌로지스",
+  "hook": "물류센터에\n휴머노이드"
  },
  {
   "date": "2026-10-06",
@@ -218,7 +266,10 @@
   "source": "이투데이",
   "url": "https://www.etoday.co.kr/news/view/2632936",
   "thumb": "assets/img/news/new17.jpg",
-  "credit": "사진: RuinDig/Yuki Uchida, CC BY 4.0 (Wikimedia Commons)"
+  "credit": "사진: RuinDig/Yuki Uchida, CC BY 4.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new17.jpg",
+  "kicker": "",
+  "hook": ""
  },
  {
   "date": "2026-10-02",
@@ -231,7 +282,10 @@
   "source": "Micro Center News",
   "url": "https://www.microcenter.com/site/mc-news/article/this-week-in-ai-oct-2-2026.aspx",
   "thumb": "assets/img/news/ai-weekly.jpg",
-  "credit": "사진: mikemacmarketing, CC BY 2.0 (Wikimedia Commons)"
+  "credit": "사진: mikemacmarketing, CC BY 2.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/ai-weekly.jpg",
+  "kicker": "This Week in AI",
+  "hook": "신모델\n쏟아진 한 주"
  },
  {
   "date": "2026-10-01",
@@ -244,7 +298,10 @@
   "source": "뉴스1",
   "url": "https://www.news1.kr/world/usa-canada/6306804",
   "thumb": "assets/img/news/google-servers.jpg",
-  "credit": "사진: Wesley Nitsckie, CC BY-SA 2.0 (Wikimedia Commons)"
+  "credit": "사진: Wesley Nitsckie, CC BY-SA 2.0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/google-servers.jpg",
+  "kicker": "구글 제미나이4",
+  "hook": "플래그십 AI\n'아르곤' 공개"
  },
  {
   "date": "2026-09-23",
@@ -257,6 +314,9 @@
   "source": "인공지능신문",
   "url": "https://www.aitimes.kr/news/articleView.html?idxno=42054",
   "thumb": "assets/img/news/new20.jpg",
-  "credit": "사진: Sai Kiran Anagani, CC0 (Wikimedia Commons)"
+  "credit": "사진: Sai Kiran Anagani, CC0 (Wikimedia Commons)",
+  "photo": "assets/img/news/photo/new20.jpg",
+  "kicker": "클로드 오퍼스 5.5",
+  "hook": "성능은 높이고\n운영비 40%↓"
  }
 ]

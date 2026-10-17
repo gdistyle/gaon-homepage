@@ -118,7 +118,7 @@ var D={data};var M={{}};D.forEach(function(d,i){{M[d.id]=i}});
 var P=document.getElementById('nwPost'),last=null;
 function $(i){{return document.getElementById(i)}}
 function show(id){{var i=M[id];var d=D[i];
-var im=$('nwImg');im.onerror=function(){{im.onerror=null;im.src='assets/img/'+d.img+'.jpg'}};im.src=d.thumb||('assets/img/'+d.img+'.jpg');$('nwCat').textContent=d.category;$('nwMeta').textContent=d.sec+' · '+d.date.replace(/-/g,'.')+' · '+d.source;
+var im=$('nwImg');im.onerror=function(){{im.onerror=null;im.src='assets/img/'+d.img+'.jpg'}};im.src=d.photo||d.thumb||('assets/img/'+d.img+'.jpg');$('nwCat').textContent=d.category;$('nwMeta').textContent=d.sec+' · '+d.date.replace(/-/g,'.')+' · '+d.source;
 $('nwTitle').textContent=d.title;$('nwLead').textContent=d.summary;$('nwText').textContent=d.body;$('nwCmt').textContent=d.comment;
 $('nwSrc').textContent='출처: '+d.source+' · '+(d.credit||'');$('nwLink').href=d.url;
 var sib=D.filter(function(x){{return x.sec===d.sec}}),k=sib.indexOf(d);
