@@ -9,8 +9,8 @@
   "comment": "현장 작업자가 손을 쓰지 못하는 공정에서는 음성 AI가 먼저 쓸모를 보입니다. 작업일지 음성 입력, 설비 이상 음성 보고처럼 '말로 기록하는 업무'부터 시험해 볼 만합니다.",
   "source": "굿모닝경제",
   "url": "https://www.goodkyung.com/news/articleView.html?idxno=292481",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new1.jpg",
+  "credit": "사진: Santeri Viinamäki, CC BY-SA 4.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-16",
@@ -35,8 +35,8 @@
   "comment": "대기업 솔루션을 그대로 들이는 것보다 우리 공정의 데이터가 준비돼 있는지가 성과를 가릅니다. 참여 전 설비·품질 데이터가 어디에, 어떤 형식으로 쌓이는지부터 점검하시길 권합니다.",
   "source": "매일일보",
   "url": "https://www.m-i.kr/news/articleView.html?idxno=2006161",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new3.jpg",
+  "credit": "사진: Bookmark Content, CC BY-SA 4.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-14",
@@ -48,8 +48,8 @@
   "comment": "전시회는 '우리 공정에 맞는 공급기업'을 한 번에 비교할 수 있는 자리입니다. 방문 전 자동화하려는 작업 1~2개와 사이클타임·불량률 같은 현재 숫자를 들고 가면 상담의 질이 달라집니다.",
   "source": "파이낸셜뉴스",
   "url": "https://www.fnnews.com/news/202610141808586536",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new4.jpg",
+  "credit": "사진: KUKA Roboter GmbH, Bachmann, Public domain (Wikimedia Commons)"
  },
  {
   "date": "2026-10-14",
@@ -61,8 +61,8 @@
   "comment": "경남은 조선·기계 협력사가 밀집한 곳이라 제조 AI 수요가 구체적입니다. 지역 기업이라면 경남도·창원시의 후속 지원사업 공고를 함께 챙겨 보시길 권합니다.",
   "source": "전자신문",
   "url": "https://www.etnews.com/20261014000304",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new5.jpg",
+  "credit": "사진: MORON, CC BY-SA 4.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-14",
@@ -74,8 +74,8 @@
   "comment": "'시범사업 74%가 운영으로 못 간다'는 숫자가 핵심입니다. PoC 전에 성공 기준(시간·불량·비용)과 운영 담당자를 먼저 정해 두지 않으면 같은 결과가 반복됩니다.",
   "source": "파이낸셜뉴스",
   "url": "https://www.fnnews.com/news/202610141513148078",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new6.jpg",
+  "credit": "사진: Mixabest, Public domain (Wikimedia Commons)"
  },
  {
   "date": "2026-10-14",
@@ -87,8 +87,8 @@
   "comment": "다른 공장 견학은 '우리보다 한 단계 앞선 곳'을 볼 때 가장 효과가 큽니다. 스마트제조 수준진단으로 우리 위치를 먼저 확인하고 견학 대상을 고르시길 권합니다.",
   "source": "인천일보",
   "url": "https://www.incheonilbo.com/news/articleView.html?idxno=1334147",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new7.jpg",
+  "credit": "사진: SimonWaldherr, CC BY-SA 4.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-13",
@@ -100,8 +100,8 @@
   "comment": "상생형 스마트공장은 '현장 개선 → 데이터 → AI' 순서로 갑니다. AI 트랙을 노린다면 공정·동선 개선 기록과 기본 생산 데이터가 쌓여 있는지가 먼저입니다.",
   "source": "전자신문",
   "url": "https://www.etnews.com/20261013000327",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new8.jpg",
+  "credit": "사진: Jeff Green/Rethink Robotics, CC BY 4.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-13",
@@ -113,8 +113,8 @@
   "comment": "휴머노이드는 아직 실증 단계이고, 안전기준이 정비되는 중입니다. 지금 중소기업이 할 일은 로봇 도입보다 '사람과 로봇이 같은 공간에서 일할 때의 위험성평가'를 미리 익혀 두는 것입니다.",
   "source": "서울경제",
   "url": "https://www.sedaily.com/article/20100860",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new9.jpg",
+  "credit": "사진: Om Umekar, CC BY-SA 4.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-13",
@@ -139,8 +139,8 @@
   "comment": "공장 데이터를 클라우드·AI로 보내는 순간 보안이 품질만큼 중요해집니다. 스마트공장 구축 계획서에 접근권한·백업·외부 접속 관리 항목을 함께 넣어 두면 평가에서도 유리합니다.",
   "source": "데이터넷",
   "url": "https://www.datanet.co.kr/news/articleView.html?idxno=215054",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new11.jpg",
+  "credit": "사진: National Science Foundation, Public domain (Wikimedia Commons)"
  },
  {
   "date": "2026-10-11",
@@ -152,8 +152,8 @@
   "comment": "무료 크레딧은 언제든 바뀔 수 있습니다. 업무에 AI를 붙일 때는 무료 혜택이 끝난 뒤의 월 비용까지 계산해 ROI를 잡아야 도입이 지속됩니다.",
   "source": "AI타임스",
   "url": "https://www.aitimes.com/news/articleView.html?idxno=216136",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new12.jpg",
+  "credit": "사진: Marvel44, CC BY-SA 4.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-10",
@@ -166,7 +166,7 @@
   "source": "굿모닝경제",
   "url": "https://www.goodkyung.com/news/articleView.html?idxno=292190",
   "thumb": "assets/img/news/new13.jpg",
-  "credit": "사진: Spnq, CC BY-SA 4.0 (Wikimedia Commons)"
+  "credit": "사진: Markus Spiske, CC0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-09",
@@ -178,8 +178,8 @@
   "comment": "생산·품질 데이터를 엑셀로 모으고 있다면 '말로 묻고 그래프로 받는' 단계가 가까워졌습니다. 다만 데이터 정의(불량 기준, 가동시간 계산식)가 먼저 통일돼야 숫자가 맞습니다.",
   "source": "AI타임스",
   "url": "https://www.aitimes.com/news/articleView.html?idxno=216095",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new14.jpg",
+  "credit": "사진: Quentin Gollier, CC BY-SA 4.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-08",
@@ -191,8 +191,8 @@
   "comment": "대학 연구팀과의 공동 실증은 정부 R&D 과제 선정에 강점이 됩니다. 로봇 도입을 검토하는 기업이라면 지역 대학·연구소와의 협력 창구를 미리 만들어 두는 것이 좋습니다.",
   "source": "인공지능신문",
   "url": "https://www.aitimes.kr/news/articleView.html?idxno=42226",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new15.jpg",
+  "credit": "사진: Dr.aleks, CC BY 2.5 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-07",
@@ -204,8 +204,8 @@
   "comment": "물류의 '주문 확인→포장→분류'처럼 단계가 정해진 작업이 로봇 실증의 첫 대상이 됩니다. 제조 현장에서도 출하·포장 공정이 가장 먼저 검토할 만한 후보입니다.",
   "source": "로봇신문",
   "url": "https://www.irobotnews.com/news/articleView.html?idxno=48875",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new16.jpg",
+  "credit": "사진: Romlogistics, CC BY-SA 3.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-06",
@@ -217,8 +217,8 @@
   "comment": "정부 투자 방향이 '소프트웨어 AI'에서 '몸을 가진 AI'로 넓어지고 있습니다. 부품·기구 설계 역량이 있는 중소 제조기업에는 새로운 공급망 기회가 생길 수 있습니다.",
   "source": "이투데이",
   "url": "https://www.etoday.co.kr/news/view/2632936",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new17.jpg",
+  "credit": "사진: RuinDig/Yuki Uchida, CC BY 4.0 (Wikimedia Commons)"
  },
  {
   "date": "2026-10-02",
@@ -256,7 +256,7 @@
   "comment": "AI 단가가 내려가면 '사람이 하던 반복 문서 업무'의 자동화 손익분기점도 내려갑니다. 작년에 비용 때문에 보류한 자동화 과제가 있다면 다시 계산해 볼 시점입니다.",
   "source": "인공지능신문",
   "url": "https://www.aitimes.kr/news/articleView.html?idxno=42054",
-  "thumb": "",
-  "credit": ""
+  "thumb": "assets/img/news/new20.jpg",
+  "credit": "사진: Sai Kiran Anagani, CC0 (Wikimedia Commons)"
  }
 ]
