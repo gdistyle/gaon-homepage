@@ -56,6 +56,9 @@
 .nw-nav button{flex:1;padding:14px 16px;border-radius:var(--r-s);border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:700;color:var(--ink-2);text-align:center;white-space:nowrap}
 .nw-nav button:disabled{opacity:.35;cursor:default}
 body.nw-lock{overflow:hidden}
+.nw-loadbox{text-align:center;margin-top:30px}
+.nw-load{padding:13px 44px;border-radius:999px;border:1px solid var(--gold-2);background:transparent;color:var(--gold-2);font-weight:700;font-size:1rem;cursor:pointer}
+.nw-load[hidden]{display:none}
 @media (max-width:1000px){.nw-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.nw-grid{grid-template-columns:1fr}.nw-in{padding:24px 20px 28px}.nw-post{padding:0}.nw-art{border-radius:0;min-height:100%}}
 </style>
@@ -170,7 +173,8 @@ body.nw-lock{overflow:hidden}
 <span class="nw-thumb"><img src="assets/img/dash.jpg" alt="" loading="lazy"><span class="nw-cat">빅테크·모델</span></span>
 <span class="nw-body"><span class="nw-date">2026.09.23 · 인공지능신문</span>
 <h3>앤트로픽, 클로드 오퍼스 5.5 공개…성능은 높이고 운영비는 40% 낮췄다</h3><p>가격 100만 토큰당 입력 4달러·출력 20달러, 전작보다 20% 인하</p><span class="nw-more">글 읽기 →</span></span></a>
-</div></div></section>
+</div>
+<div class="nw-loadbox"><button type="button" class="nw-load" data-g="ai">더 보기</button></div></div></section>
 <section class="sec " id="biz"><div class="wrap">
 <div class="head5"><div><h2>컨설팅 소식 — 지원사업 · ESG · ISO</h2><p>스마트공장 지원사업, 정부 공고, 공급망 ESG, 인증·규제 소식과 준비 포인트</p></div></div>
 <div class="nw-filter" role="group" aria-label="분야 선택" data-g="biz"><button type="button" class="on" data-f="all">전체 20</button><button type="button" data-f="스마트공장">스마트공장 3</button><button type="button" data-f="지원사업 공고">지원사업 공고 3</button><button type="button" data-f="ESG·공급망">ESG·공급망 5</button><button type="button" data-f="ISO·규제">ISO·규제 5</button><button type="button" data-f="수출·기타">수출·기타 4</button></div>
@@ -256,7 +260,8 @@ body.nw-lock{overflow:hidden}
 <span class="nw-thumb"><img src="assets/img/dash.jpg" alt="" loading="lazy"><span class="nw-cat">ESG·공급망</span></span>
 <span class="nw-body"><span class="nw-date">2026.08.20 · 에너지데일리</span>
 <h3>ESG·탄소규제 코앞인데 기업 데이터는 &#x27;각자도생&#x27;…&quot;공급망 표준 플랫폼 시급&quot;</h3><p>수출기업 99.3%가 고객사로부터 탄소배출 데이터 요구 받았거나 받을 예정</p><span class="nw-more">글 읽기 →</span></span></a>
-</div></div></section>
+</div>
+<div class="nw-loadbox"><button type="button" class="nw-load" data-g="biz">더 보기</button></div></div></section>
 <div class="wrap"><p class="nw-note">기사 내용을 요약해 소개하며 원문 저작권은 각 언론사·기관에 있습니다. 가온 코멘트는 가온연구소의 의견입니다. 섬네일은 가온연구소 사진입니다.</p></div>
 <section class="cta5" style="background-image:url(assets/img/whiteboard.jpg)"><h2>뉴스는 많은데 우리 회사는 어디서부터?</h2><p>업무 하나, 공정 하나부터 함께 정리합니다.</p>
 <a class="tel" href="tel:01022443100">010-2244-3100</a>
@@ -290,9 +295,14 @@ $('nwClose').onclick=back;$('nwList').onclick=back;
 P.addEventListener('click',function(e){if(e.target===P)back()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&P.classList.contains('open'))back()});
 window.addEventListener('hashchange',function(){var a=document.activeElement;if(a&&a.blur)a.blur();var g=document.getElementById('gnav');if(g)g.classList.remove('open');route()});route();
+var ST={};
+function apply(g){var st=ST[g],i=0,m=0;document.querySelectorAll('.nw-grid[data-g="'+g+'"] .nw-card').forEach(function(c){var ok=st.f==='all'||c.getAttribute('data-cat')===st.f;if(ok){m++;c.style.display=(i<st.n)?'':'none';i++}else c.style.display='none'});
+var lb=document.querySelector('.nw-load[data-g="'+g+'"]');lb.hidden=m<=st.n;lb.textContent='더 보기 ('+Math.min(st.n,m)+' / '+m+')'}
+['ai','biz'].forEach(function(g){ST[g]={f:'all',n:12};apply(g)});
+document.querySelectorAll('.nw-load').forEach(function(b){b.addEventListener('click',function(){var g=b.getAttribute('data-g');ST[g].n+=12;apply(g)})});
 document.querySelectorAll('.nw-filter button').forEach(function(b){b.addEventListener('click',function(){
 var g=b.parentNode.getAttribute('data-g');b.parentNode.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
-var f=b.getAttribute('data-f');document.querySelectorAll('.nw-grid[data-g="'+g+'"] .nw-card').forEach(function(c){c.style.display=(f==='all'||c.getAttribute('data-cat')===f)?'':'none'});
+ST[g]={f:b.getAttribute('data-f'),n:12};apply(g);
 })});
 })();
 </script>

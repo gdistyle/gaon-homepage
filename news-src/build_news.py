@@ -62,6 +62,9 @@ style = """<style>
 .nw-nav button{flex:1;padding:14px 16px;border-radius:var(--r-s);border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:700;color:var(--ink-2);text-align:center;white-space:nowrap}
 .nw-nav button:disabled{opacity:.35;cursor:default}
 body.nw-lock{overflow:hidden}
+.nw-loadbox{text-align:center;margin-top:30px}
+.nw-load{padding:13px 44px;border-radius:999px;border:1px solid var(--gold-2);background:transparent;color:var(--gold-2);font-weight:700;font-size:1rem;cursor:pointer}
+.nw-load[hidden]{display:none}
 @media (max-width:1000px){.nw-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.nw-grid{grid-template-columns:1fr}.nw-in{padding:24px 20px 28px}.nw-post{padding:0}.nw-art{border-radius:0;min-height:100%}}
 </style>
@@ -86,7 +89,8 @@ def block(sid, items, cats, title, desc, bg):
 <div class="nw-meta"><span>{STAMP} 기준 · 매주 월요일 업데이트</span><span>최신순 {len(items)}건</span></div>
 <div class="nw-grid" data-g="{sid}">
 {chr(10).join(card(i) for i in items)}
-</div></div></section>'''
+</div>
+<div class="nw-loadbox"><button type="button" class="nw-load" data-g="{sid}">더 보기</button></div></div></section>'''
 
 
 data = json.dumps(AI + BIZ, ensure_ascii=False)
@@ -128,9 +132,14 @@ $('nwClose').onclick=back;$('nwList').onclick=back;
 P.addEventListener('click',function(e){{if(e.target===P)back()}});
 document.addEventListener('keydown',function(e){{if(e.key==='Escape'&&P.classList.contains('open'))back()}});
 window.addEventListener('hashchange',function(){{var a=document.activeElement;if(a&&a.blur)a.blur();var g=document.getElementById('gnav');if(g)g.classList.remove('open');route()}});route();
+var ST={{}};
+function apply(g){{var st=ST[g],i=0,m=0;document.querySelectorAll('.nw-grid[data-g="'+g+'"] .nw-card').forEach(function(c){{var ok=st.f==='all'||c.getAttribute('data-cat')===st.f;if(ok){{m++;c.style.display=(i<st.n)?'':'none';i++}}else c.style.display='none'}});
+var lb=document.querySelector('.nw-load[data-g="'+g+'"]');lb.hidden=m<=st.n;lb.textContent='더 보기 ('+Math.min(st.n,m)+' / '+m+')'}}
+['ai','biz'].forEach(function(g){{ST[g]={{f:'all',n:12}};apply(g)}});
+document.querySelectorAll('.nw-load').forEach(function(b){{b.addEventListener('click',function(){{var g=b.getAttribute('data-g');ST[g].n+=12;apply(g)}})}});
 document.querySelectorAll('.nw-filter button').forEach(function(b){{b.addEventListener('click',function(){{
 var g=b.parentNode.getAttribute('data-g');b.parentNode.querySelectorAll('button').forEach(function(x){{x.classList.toggle('on',x===b)}});
-var f=b.getAttribute('data-f');document.querySelectorAll('.nw-grid[data-g="'+g+'"] .nw-card').forEach(function(c){{c.style.display=(f==='all'||c.getAttribute('data-cat')===f)?'':'none'}});
+ST[g]={{f:b.getAttribute('data-f'),n:12}};apply(g);
 }})}});
 }})();
 </script>'''
