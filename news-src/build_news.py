@@ -97,7 +97,7 @@ data = json.dumps(AI + BIZ, ensure_ascii=False)
 main = f'''<main id="main">
 <section class="banner" style="background-image:url(assets/img/dash.jpg)"><div class="wrap"><h1>NEWS</h1><p class="ben">AI 소식 · 컨설팅 소식</p><p class="bsub">AI 소식과 지원사업·ESG·ISO 소식을 골라 요약과 코멘트로</p></div></section>
 <div class="tabbar"><div class="wrap"><nav class="subtabs" aria-label="목차"><a href="#ai">AI 소식</a><a href="#biz">컨설팅 소식</a></nav></div></div>
-{block("ai", AI, CATS_AI, "이번 주 AI 소식", "제조 AI·AX 정책·빅테크·로봇 소식 — 카드를 누르면 요약 글과 가온 코멘트가 열립니다", "mist")}
+{block("ai", AI, CATS_AI, "AI 소식", "제조 AI·AX 정책·빅테크·로봇 소식 — 카드를 누르면 요약 글과 가온 코멘트가 열립니다", "mist")}
 {block("biz", BIZ, CATS_BIZ, "컨설팅 소식 — 지원사업 · ESG · ISO", "스마트공장 지원사업, 정부 공고, 공급망 ESG, 인증·규제 소식과 준비 포인트", "")}
 <div class="wrap"><p class="nw-note">기사 내용을 요약해 소개하며 원문 저작권은 각 언론사·기관에 있습니다. 가온 코멘트는 가온연구소의 의견입니다. 기사 사진은 자유 이용 허락(CC0·CC BY·CC BY-SA)된 사진이며, 작가와 라이선스는 각 글 아래에 표시했습니다.</p></div>
 <section class="cta5" style="background-image:url(assets/img/whiteboard.jpg)"><h2>뉴스는 많은데 우리 회사는 어디서부터?</h2><p>업무 하나, 공정 하나부터 함께 정리합니다.</p>
