@@ -1836,3 +1836,22 @@ p,li,dd,span,small{font-weight:inherit}
 @media (min-width:1101px){.subtabs{display:flex}.subtabs a,.subtabs a:first-child{flex:1 1 auto;white-space:nowrap;padding:14px 14px}}
 .gl-pic{width:58px;height:58px}.gl-pic svg{width:36px;height:36px}.gl-card>button{padding-left:92px;min-height:96px}
 
+
+/* 유튜브 · 블로그 배너 (푸터 위, 전 페이지 공통) */
+.chbar{background:var(--co-deep);padding:40px 0;border-top:1px solid rgba(255,255,255,.06)}
+.chbar .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.chb{display:flex;align-items:center;gap:20px;padding:22px 26px;border-radius:var(--r-l);text-decoration:none;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);transition:transform .2s,background .2s,border-color .2s}
+.chb:hover{transform:translateY(-2px);background:rgba(255,255,255,.09)}
+.chb.yt:hover{border-color:#FF4D4D}
+.chb.bl:hover{border-color:#03C75A}
+.chb .ic{flex:0 0 56px;width:56px;height:56px;border-radius:14px;display:grid;place-items:center}
+.chb.yt .ic{background:#FF0000}
+.chb.bl .ic{background:#03C75A}
+.chb .ic svg{width:30px;height:30px}
+.chb .tx{flex:1 1 auto;min-width:0}
+.chb .tx small{display:block;font-size:.8rem;letter-spacing:.06em;color:var(--gold-2);font-weight:500}
+.chb .tx b{display:block;font-size:1.15rem;line-height:1.4;word-break:keep-all}
+.chb .tx span{display:block;font-size:.9rem;color:rgba(255,255,255,.7);word-break:keep-all}
+.chb .go{flex:0 0 auto;font-size:.88rem;font-weight:700;white-space:nowrap;display:flex;align-items:center;gap:4px;color:#fff}
+.chb .go svg{width:18px;height:18px}
+@media (max-width:820px){.chbar{padding:28px 0}.chbar .wrap{grid-template-columns:1fr;gap:14px}.chb{padding:18px 18px;gap:14px}.chb .ic{flex-basis:48px;width:48px;height:48px;border-radius:12px}.chb .ic svg{width:26px;height:26px}.chb .go span{display:none}}
