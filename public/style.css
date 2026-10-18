@@ -620,7 +620,7 @@ a.tag:hover{border-color:var(--co);color:var(--co)}
 .ft-biz{max-width:46em}
 .ft-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px 20px}
 .ft-yt{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
-.ft-yt svg{flex:none}
+.ft-yt svg{flex:none;position:relative;top:2.5px}
 .ft-links{display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px}
 .ft-links a,.ft-copy{position:relative;white-space:nowrap}
 .ft-links a+a::before,.ft-copy::before{content:"";position:absolute;left:-8px;top:50%;transform:translateY(-50%);width:1px;height:11px;background:rgba(152,166,189,.3)}
