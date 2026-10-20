@@ -1849,7 +1849,7 @@ p,li,dd,span,small{font-weight:inherit}
 
 /* 유튜브 · 블로그 배너 (푸터 위, 전 페이지 공통) */
 .chbar{background:var(--co-deep);padding:40px 0;border-top:1px solid rgba(255,255,255,.06)}
-.chbar .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.chbar .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .chb{display:flex;align-items:center;gap:20px;padding:22px 26px;border-radius:var(--r-l);text-decoration:none;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);transition:transform .2s,background .2s,border-color .2s}
 .chb:hover{transform:translateY(-2px);background:rgba(255,255,255,.09)}
 .chb.yt:hover{border-color:#FF4D4D}
@@ -1857,6 +1857,11 @@ p,li,dd,span,small{font-weight:inherit}
 .chb .ic{flex:0 0 56px;width:56px;height:56px;border-radius:14px;display:grid;place-items:center}
 .chb.yt .ic{background:#FF0000}
 .chb.bl .ic{background:#03C75A}
+.chb.mc .ic{background:#B8742E}
+.chb.mc:hover{border-color:#E0A458}
+.chbar .chb .go span{display:none}
+.chbar .chb{padding:22px 22px;gap:16px}
+@media (max-width:1180px){.chbar .wrap{grid-template-columns:1fr;gap:14px}}
 .chb .ic svg{width:30px;height:30px}
 .chb .tx{flex:1 1 auto;min-width:0}
 .chb .tx small{display:block;font-size:.8rem;letter-spacing:.06em;color:var(--gold-2);font-weight:500}
