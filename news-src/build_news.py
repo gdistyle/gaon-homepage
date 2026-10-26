@@ -5,13 +5,14 @@ H = open(P('news_head.html'), encoding='utf8').read()
 T = open(P('news_tail.html'), encoding='utf8').read()
 AI = json.load(open(P('news.json'), encoding='utf8'))
 BIZ = json.load(open(P('biz.json'), encoding='utf8'))
+LLM = json.load(open(P('llm.json'), encoding='utf8'))
 _t = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date()
 STAMP = f'{_t.year}년 {_t.month}월 {_t.day}일'
-for lst, p in ((AI, 'ai'), (BIZ, 'biz')):
+for lst, p in ((AI, 'ai'), (BIZ, 'biz'), (LLM, 'llm')):
     lst.sort(key=lambda x: x['date'], reverse=True)
     for i, it in enumerate(lst, 1):
         it['id'] = f'{p}-{i:02d}'
-        it['sec'] = 'AI 소식' if p == 'ai' else '컨설팅 소식'
+        it['sec'] = {'ai': 'AI 소식', 'biz': '컨설팅 소식', 'llm': 'LLM 소식'}[p]
 
 H = H.replace('<title>현장 지식 | 가온연구소 GAON Lab</title>', '<title>NEWS | 가온연구소 GAON Lab</title>')
 H = H.replace('content="스마트공장 시스템 계층도, ISO 구조, 실무 가이드, 현장 용어 사전."', 'content="제조 AI·AX 소식과 스마트공장 지원사업·ESG·ISO 소식을 골라 요약과 가온연구소 코멘트로 정리합니다."')
@@ -20,10 +21,11 @@ H = H.replace('<div class="dd on">', '<div class="dd">', 1)
 H = re.sub(r'(\n\s+)<a href="research.html">연구</a>', r'\1<a href="research.html">연구</a>\1<a href="news.html" aria-current="page">NEWS</a>', H, count=1)
 H = H.replace('<li><a href="research.html">연구</a></li>', '<li><a href="research.html">연구</a></li><li><a href="news.html">NEWS</a></li>')
 CATS_AI = ['제조 AI', 'AX 정책', '빅테크·모델', '로봇·피지컬 AI']
+CATS_LLM = ['ChatGPT', '제미나이', '클로드', 'AI 도구·서비스']
 CATS_BIZ = ['스마트공장', '지원사업 공고', 'ESG·공급망', 'ISO·규제', '수출·기타']
 
 style = """<style>
-#ai,#biz{scroll-margin-top:90px}
+#ai,#biz,#llm{scroll-margin-top:90px}
 .nw-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
 .nw-filter button{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink-2);font-weight:700;font-size:.94rem;cursor:pointer;white-space:nowrap}
 .nw-filter button.on{background:var(--co);border-color:var(--co);color:#fff}
@@ -93,12 +95,13 @@ def block(sid, items, cats, title, desc, bg):
 <div class="nw-loadbox"><button type="button" class="nw-load" data-g="{sid}">더 보기</button></div></div></section>'''
 
 
-data = json.dumps(AI + BIZ, ensure_ascii=False)
+data = json.dumps(AI + BIZ + LLM, ensure_ascii=False)
 main = f'''<main id="main">
-<section class="banner" style="background-image:url(assets/img/dash.jpg)"><div class="wrap"><h1>NEWS</h1><p class="ben">AI 소식 · 컨설팅 소식</p><p class="bsub">AI 소식과 지원사업·ESG·ISO 소식을 골라 요약과 코멘트로</p></div></section>
-<div class="tabbar"><div class="wrap"><nav class="subtabs" aria-label="목차"><a href="#ai">AI 소식</a><a href="#biz">컨설팅 소식</a></nav></div></div>
+<section class="banner" style="background-image:url(assets/img/dash.jpg)"><div class="wrap"><h1>NEWS</h1><p class="ben">AI 소식 · LLM 소식 · 컨설팅 소식</p><p class="bsub">AI·LLM 소식과 지원사업·ESG·ISO 소식을 골라 요약과 코멘트로</p></div></section>
+<div class="tabbar"><div class="wrap"><nav class="subtabs" aria-label="목차"><a href="#ai">AI 소식</a><a href="#llm">LLM 소식</a><a href="#biz">컨설팅 소식</a></nav></div></div>
 {block("ai", AI, CATS_AI, "AI 소식", "제조 AI·AX 정책·빅테크·로봇 소식 — 카드를 누르면 요약 글과 가온 코멘트가 열립니다", "mist")}
-{block("biz", BIZ, CATS_BIZ, "컨설팅 소식 — 지원사업 · ESG · ISO", "스마트공장 지원사업, 정부 공고, 공급망 ESG, 인증·규제 소식과 준비 포인트", "")}
+{block("llm", LLM, CATS_LLM, "LLM 소식", "챗GPT·제미나이·클로드 등 지금 뜨는 AI 서비스의 새 기능과 소식 — 카드를 누르면 요약 글과 가온 코멘트가 열립니다", "")}
+{block("biz", BIZ, CATS_BIZ, "컨설팅 소식 — 지원사업 · ESG · ISO", "스마트공장 지원사업, 정부 공고, 공급망 ESG, 인증·규제 소식과 준비 포인트", "mist")}
 <div class="wrap"><p class="nw-note">기사 내용을 요약해 소개하며 원문 저작권은 각 언론사·기관에 있습니다. 가온 코멘트는 가온연구소의 의견입니다. 기사 사진은 자유 이용 허락(CC0·CC BY·CC BY-SA)된 사진이며, 작가와 라이선스는 각 글 아래에 표시했습니다.</p></div>
 <section class="cta5" style="background-image:url(assets/img/whiteboard.jpg)"><h2>뉴스는 많은데 우리 회사는 어디서부터?</h2><p>업무 하나, 공정 하나부터 함께 정리합니다.</p>
 <a class="tel" href="tel:01022443100">010-2244-3100</a>
@@ -127,7 +130,7 @@ $('nwPrev').onclick=function(){{if(k>0)location.hash=sib[k-1].id}};$('nwNext').o
 P.classList.add('open');P.setAttribute('aria-hidden','false');document.body.classList.add('nw-lock');P.scrollTop=0;last=d.sec}}
 function hide(){{P.classList.remove('open');P.setAttribute('aria-hidden','true');document.body.classList.remove('nw-lock')}}
 function route(){{var h=location.hash.slice(1);if(M[h]!==undefined)show(h);else hide()}}
-function back(){{location.hash=(last==='AI 소식'?'ai':'biz')}}
+function back(){{location.hash=(last==='AI 소식'?'ai':last==='LLM 소식'?'llm':'biz')}}
 $('nwClose').onclick=back;$('nwList').onclick=back;
 P.addEventListener('click',function(e){{if(e.target===P)back()}});
 document.addEventListener('keydown',function(e){{if(e.key==='Escape'&&P.classList.contains('open'))back()}});
@@ -135,7 +138,7 @@ window.addEventListener('hashchange',function(){{var a=document.activeElement;if
 var ST={{}};
 function apply(g){{var st=ST[g],i=0,m=0;document.querySelectorAll('.nw-grid[data-g="'+g+'"] .nw-card').forEach(function(c){{var ok=st.f==='all'||c.getAttribute('data-cat')===st.f;if(ok){{m++;c.style.display=(i<st.n)?'':'none';i++}}else c.style.display='none'}});
 var lb=document.querySelector('.nw-load[data-g="'+g+'"]');lb.hidden=m<=st.n;lb.textContent='더 보기 ('+Math.min(st.n,m)+' / '+m+')'}}
-['ai','biz'].forEach(function(g){{ST[g]={{f:'all',n:12}};apply(g)}});
+['ai','llm','biz'].forEach(function(g){{ST[g]={{f:'all',n:12}};apply(g)}});
 document.querySelectorAll('.nw-load').forEach(function(b){{b.addEventListener('click',function(){{var g=b.getAttribute('data-g');ST[g].n+=12;apply(g)}})}});
 document.querySelectorAll('.nw-filter button').forEach(function(b){{b.addEventListener('click',function(){{
 var g=b.parentNode.getAttribute('data-g');b.parentNode.querySelectorAll('button').forEach(function(x){{x.classList.toggle('on',x===b)}});
@@ -147,8 +150,9 @@ OUT = H + main + T
 ARW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>'
 DD=('<div class="dd on"><button type="button" aria-haspopup="true">NEWS'+ARW+'</button><div class="mega small">'
  '<a href="news.html#ai"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 10h4v4h-4zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span><span><b>AI 소식</b><span>제조 AI·AX 정책·로봇 최신 흐름</span></span></a>'
+ '<a href="news.html#llm"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><span><b>LLM 소식</b><span>챗GPT·제미나이·클로드 새 기능</span></span></a>'
  '<a href="news.html#biz"><span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><span><b>컨설팅 소식</b><span>지원사업 공고·ESG·ISO 동향</span></span></a></div></div>')
 OUT = OUT.replace('<a href="news.html" aria-current="page">NEWS</a>', DD, 1)
-OUT = re.sub(r'(<li><a href="research.html">연구</a></li>)(?!<li><a href="news)', r'\1<li><a href="news.html#ai">AI 소식</a></li><li><a href="news.html#biz">컨설팅 소식</a></li>', OUT)
+OUT = re.sub(r'(<li><a href="research.html">연구</a></li>)(?!<li><a href="news)', r'\1<li><a href="news.html#ai">AI 소식</a></li><li><a href="news.html#llm">LLM 소식</a></li><li><a href="news.html#biz">컨설팅 소식</a></li>', OUT)
 open(os.path.join(D0, '..', 'public', 'news.html'), 'w', encoding='utf8').write(OUT)
-print(len(AI), len(BIZ))
+print(len(AI), len(BIZ), len(LLM))

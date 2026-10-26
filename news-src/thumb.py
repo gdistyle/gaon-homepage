@@ -31,10 +31,10 @@ def make(it):
     im.save(os.path.join(PUB, out), quality=84, optimize=True)
     it['thumb'] = out
 if __name__ == '__main__':
-    for fn in ['news.json', 'biz.json']:
+    for fn in ['news.json', 'biz.json', 'llm.json']:
         p = os.path.join(D0, fn); L = json.load(open(p, encoding='utf8'))
         for it in L:
             if it.get('photo'): make(it)
         json.dump(L, open(p, 'w', encoding='utf8'), ensure_ascii=False, indent=1)
-    T = [x['thumb'] for fn in ['news.json', 'biz.json'] for x in json.load(open(os.path.join(D0, fn), encoding='utf8'))]
+    T = [x['thumb'] for fn in ['news.json', 'biz.json', 'llm.json'] for x in json.load(open(os.path.join(D0, fn), encoding='utf8'))]
     print('thumbs', len(T), 'unique', len(set(T)))
