@@ -1878,3 +1878,13 @@ p,li,dd,span,small{font-weight:inherit}
 @media (max-width:420px){
   .ft-meta{flex-direction:column;align-items:flex-start;gap:12px}
 }
+
+
+/* 카카오톡 상담 버튼 (고정 상담 버튼) */
+.float-cta a.kakao{background:#FEE500;color:#191919}
+.float-cta a.kakao:hover{background:#F5DC00}
+.float-cta a.kakao svg{color:#191919}
+@media (max-width:960px){
+  .float-cta a.kakao,.float-cta a+a.kakao{background:#FEE500;color:#191919}
+  .float-cta a.kakao svg,.float-cta a+a.kakao svg{color:#191919}
+}
