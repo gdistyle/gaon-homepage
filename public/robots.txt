@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gaonlab.gdistyle.workers.dev/sitemap.xml
