@@ -402,3 +402,17 @@
   var f6=document.getElementById('f6'), tp=new URLSearchParams(location.search).get('topic');
   if(f6&&tp&&!f6.value) f6.value='['+tp+'] 관련 상담을 원합니다.\n\n';
 })();
+
+
+/* ---------- 카카오톡 상담 버튼 (고정 상담 버튼에 추가) ---------- */
+(function(){
+  var w=document.querySelector('.float-cta');
+  if(!w||w.querySelector('.kakao')) return;
+  var a=document.createElement('a');
+  a.className='kakao';
+  a.href='https://pf.kakao.com/_zMxfWX/chat';
+  a.target='_blank'; a.rel='noopener';
+  a.setAttribute('aria-label','카카오톡 상담');
+  a.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.7 6.7l-1 3.7c-.1.3.3.6.6.4l4.4-2.9c.4 0 .9.1 1.3.1 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg><span>카톡상담</span>';
+  w.appendChild(a);
+})();
