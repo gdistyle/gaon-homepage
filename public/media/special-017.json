@@ -1,0 +1,22 @@
+{
+ "title": "[가온연구소 특강] Ego Lite vs 업무 전용 브라우저, AI에게 어떤 계정까지 맡길까 | 가온연구소",
+ "description": "Ego Lite vs 업무 전용 브라우저 — AI 브라우저 에이전트에게 어떤 계정까지 맡길지, 보안 원칙(OWASP 프롬프트 인젝션 · 최소 권한)으로 판단하고 업무 계정만 분리한 전용 브라우저를 구축합니다.\n화면을 따라 클릭만 하면 그대로 완성됩니다.\n\n00:00 오프닝 — 한 줄 지시, 업무 계정만\n00:33 사례 — AI가 닿는 계정 수\n00:59 Q1 — Ego Lite가 뭔가요\n01:26 Ego Lite 주요 기능\n02:03 Q2 — 무엇을 따져 봐야 하나요\n02:33 원칙 — 생성형 AI 보안 위험 1위\n02:59 원칙 — 최소 권한\n03:20 비교 — 통합형과 분리형\n03:45 Q3 — 그래서 무엇을 쓰나요\n04:13 준비물\n04:31 1단계 — 설치 명령 두 줄\n04:48 2단계 — 업무 전용 브라우저\n05:25 3단계 — 연결 장치 등록\n06:20 복사해 쓰는 지시문\n07:06 구성 파일에 넣을 부분\n07:19 Q4 — 막히면 이렇게\n07:48 운영 수칙 다섯 가지\n08:16 응용 · Ego Lite 사용자 팁\n08:42 정리\n\n[1] Node.js 설치 (PowerShell)\nwinget install OpenJS.NodeJS.LTS\n\n[2] Claude Code 설치 (PowerShell)\nirm https://claude.ai/install.ps1 | iex\n\n[전용 브라우저 열기 — 업무 사이트만 로그인]\n\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --user-data-dir=\"C:\\AgentBrowser\\profile\"\n\n※ 열린 창에서 업무 사이트에만 로그인\n※ 비밀번호 저장 · Chrome 동기화는 하지 않음\n\n[연결 장치 등록 — 한 줄]\nclaude mcp add --scope user agent-browser -- cmd /c npx -y @playwright/mcp@latest --browser chrome --user-data-dir \"C:\\AgentBrowser\\profile\"\n\n[Claude 데스크톱 앱 구성 파일에 추가할 부분]\n\"mcpServers\": {\n  \"agent-browser\": {\n    \"command\": \"cmd\",\n    \"args\": [\"/c\",\"npx\",\"-y\",\"@playwright/mcp@latest\",\"--browser\",\"chrome\",\"--user-data-dir\",\"C:\\\\AgentBrowser\\\\profile\"]\n  }\n},\n\n[복사해 쓰는 지시문]\n① [블로그 주소]에 들어가서 최근 글 제목 5개를 표로 정리해 줘\n② 등록된 업무 사이트 각각 로그인돼 있는지만 확인해서 표로 알려줘\n③ [사이트 이름] 로그인 화면만 열어 줘. 로그인은 내가 직접 할게\n\n※ 화면 속 사이트 수·폴더 이름은 설명용 예시입니다. 어느 도구가 정답이라는 의미가 아니며, 업무 환경에 맞게 선택하시기 바랍니다.\n\n[출처]\n· OWASP Gen AI Security Project, LLM01:2025 Prompt Injection — https://genai.owasp.org/llmrisk/llm01-prompt-injection/\n· Ego Lite 공식 저장소 README (2026-10 확인) — https://github.com/citrolabs/ego-lite\n· Microsoft Playwright MCP — https://github.com/microsoft/playwright-mcp\n· Claude Code 설치 안내 — https://code.claude.com/docs/en/setup\n\n이 영상의 내레이션은 AI 음성으로 만들었습니다.\n\n가온연구소 | 경영컨설팅 · 스마트제조 · AX(AI 전환)\n홈페이지: https://gaonlab.gdistyle.workers.dev",
+ "tags": [
+  "Ego Lite",
+  "이고 라이트",
+  "AI 브라우저",
+  "브라우저 에이전트",
+  "Claude Code",
+  "Playwright MCP",
+  "프롬프트 인젝션",
+  "AI 보안",
+  "최소 권한",
+  "업무 자동화",
+  "가온연구소",
+  "가온연구소 특강",
+  "AI 강의"
+ ],
+ "playlist": "가온연구소 특강",
+ "privacy": "private",
+ "publish_at": "2026-10-29T20:00:00+09:00"
+}
