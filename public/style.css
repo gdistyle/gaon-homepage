@@ -832,7 +832,7 @@ font[style]{background:none!important;box-shadow:none!important}
 .trust5 .wrap{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;align-items:center;padding-top:34px;padding-bottom:34px}
 .trust5 h2{font-size:1rem;font-weight:700;color:var(--ink);line-height:1.5}
 .trust5 h2 span{display:block;font-size:.84rem;color:var(--muted);font-weight:600}
-.orgs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.orgs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
 .orgs div{border:1px solid var(--line);border-radius:4px;padding:14px 10px;text-align:center;font-size:.86rem;font-weight:700;color:var(--ink-2);line-height:1.4;display:grid;place-items:center;min-height:64px}
 .orgs div small{display:block;font-weight:600;color:var(--muted);font-size:.76rem;margin-top:2px}
 
