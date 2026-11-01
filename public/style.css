@@ -1948,3 +1948,7 @@ p,li,dd,span,small{font-weight:inherit}
 .site-header.over:not(.scrolled) .gl-slot{color:#fff}
 .site-header.over:not(.scrolled) .gl-slot .gl-btn{border-color:rgba(255,255,255,.4)}
 @media (max-width:1180px){.gl-slot{margin:8px 0 0!important;color:var(--ink)!important}.gl-slot .gl-btn{border-color:var(--line)!important}}
+/* 상담 예약 안내 */
+.bk-notice{margin:0 0 22px;padding:16px 20px;border:1px solid var(--line);border-left:4px solid var(--co);border-radius:6px;background:var(--card);word-break:keep-all}
+.bk-notice b{display:block;margin-bottom:6px;font-size:1rem}
+.bk-notice ul{margin:0;padding-left:18px;line-height:1.75;font-size:.94rem;color:var(--muted)}
