@@ -74,7 +74,7 @@ async function verifyGoogle(credential) {
   const r = await fetch("https://oauth2.googleapis.com/tokeninfo?id_token=" + encodeURIComponent(credential));
   if (!r.ok) throw new Error("구글 확인 실패");
   const j = await r.json();
-  if (j.aud !== AUTH.google.clientId) throw new Error("구글 앱 불일치");
+  if (!AUTH.googleClients.includes(j.aud)) throw new Error("구글 앱 불일치");
   if (!["accounts.google.com", "https://accounts.google.com"].includes(j.iss)) throw new Error("구글 발급처 불일치");
   if (Number(j.exp) * 1000 < now()) throw new Error("구글 토큰 만료");
   return { sub: j.sub, name: clip(j.name || j.given_name || "구글 사용자", 40) };
@@ -87,10 +87,13 @@ async function verifyNaver(accessToken) {
   return { sub: j.response.id, name: clip(j.response.nickname || "네이버 사용자", 40) };
 }
 
-async function verifyKakao(code, redirectUri) {
-  if (!AUTH.kakao.restKey) throw new Error("카카오 로그인 준비 중");
-  if (redirectUri !== AUTH.kakao.redirectUri) throw new Error("카카오 주소 불일치");
-  const form = new URLSearchParams({ grant_type: "authorization_code", client_id: AUTH.kakao.restKey, redirect_uri: redirectUri, code });
+async function verifyKakao(code, redirectUri, clientKey) {
+  const apps = { ...AUTH.kakaoApps };
+  if (AUTH.kakao.restKey) apps[AUTH.kakao.restKey] = AUTH.kakao.redirectUri;
+  const key = clientKey || AUTH.kakao.restKey;
+  if (!key || !apps[key]) throw new Error("카카오 로그인 준비 중");
+  if (redirectUri !== apps[key]) throw new Error("카카오 주소 불일치");
+  const form = new URLSearchParams({ grant_type: "authorization_code", client_id: key, redirect_uri: redirectUri, code });
   const tr = await fetch("https://kauth.kakao.com/oauth/token", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded;charset=utf-8" }, body: form });
   const tj = await tr.json().catch(() => ({}));
   if (!tr.ok || !tj.access_token) throw new Error("카카오 토큰 실패");
@@ -135,7 +138,7 @@ export async function handleAuth(request, env) {
       let who;
       if (path === "google") who = await verifyGoogle(String(b.credential || ""));
       if (path === "naver") who = await verifyNaver(String(b.accessToken || ""));
-      if (path === "kakao") who = await verifyKakao(String(b.code || ""), String(b.redirectUri || ""));
+      if (path === "kakao") who = await verifyKakao(String(b.code || ""), String(b.redirectUri || ""), String(b.clientKey || ""));
       return call("login", {}, { method: "POST", body: JSON.stringify({ provider: path, ...who }) });
     }
     if (path === "config") return reply({ google: AUTH.google.clientId, naver: AUTH.naver.clientId, kakao: AUTH.kakao.restKey, kakaoRedirect: AUTH.kakao.redirectUri, returnOrigins: AUTH.allowedOrigins });
