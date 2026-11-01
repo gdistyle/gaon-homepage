@@ -1943,3 +1943,8 @@ p,li,dd,span,small{font-weight:inherit}
 .form .frow.one{grid-template-columns:1fr}
 .form .fitem[hidden]{display:none}
 @media (max-width:900px){.bk-left{display:contents}.bk-cal{order:1}.bk-side{order:2}.bk-info{order:3}}
+/* 가온 통합 로그인 버튼 */
+.gl-slot{display:inline-flex;align-items:center;color:var(--ink)}
+.site-header.over:not(.scrolled) .gl-slot{color:#fff}
+.site-header.over:not(.scrolled) .gl-slot .gl-btn{border-color:rgba(255,255,255,.4)}
+@media (max-width:1180px){.gl-slot{margin:8px 0 0!important;color:var(--ink)!important}.gl-slot .gl-btn{border-color:var(--line)!important}}

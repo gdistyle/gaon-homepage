@@ -416,3 +416,13 @@
   a.innerHTML='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.7 6.7l-1 3.7c-.1.3.3.6.6.4l4.4-2.9c.4 0 .9.1 1.3.1 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg><span>카톡상담</span>';
   w.appendChild(a);
 })();
+
+/* 가온 통합 로그인 버튼 — 상단 메뉴의 상담문의 앞에 표시 */
+(function(){
+  var nav = document.querySelector('.gnav'); if (!nav || /\/login(\.html)?$/.test(location.pathname)) return;
+  var slot = document.createElement('span'); slot.className = 'gl-slot'; slot.style.marginLeft = '14px';
+  var cta = nav.querySelector('a.btn.primary'); if (cta) nav.insertBefore(slot, cta); else nav.appendChild(slot);
+  var s = document.createElement('script'); s.src = '/assets/gaon-login.js?v=1'; s.defer = true;
+  s.onload = function(){ window.GaonLogin.mount(slot); };
+  document.head.appendChild(s);
+})();

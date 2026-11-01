@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>로그인 | 가온연구소 GAON Lab</title>
+<meta name="theme-color" content="#0B1736">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root{--bg:#2B2F36;--card:#F1F3F6;--ink:#1D2433;--muted:#5A6375;--line:#D2D8E1;--navy:#0B1736}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;background:var(--bg);color:var(--ink);display:flex;align-items:center;justify-content:center;padding:24px 16px;word-break:keep-all}
+  .card{width:100%;max-width:400px;background:var(--card);border-radius:10px;padding:40px 32px 28px;box-shadow:0 20px 50px rgba(0,0,0,.35);text-align:center}
+  .logo{height:34px;margin-bottom:22px}
+  h1{font-size:1.35rem;margin:0 0 8px;font-weight:700}
+  .sub{margin:0 0 28px;color:var(--muted);font-size:.93rem;line-height:1.6}
+  .opts{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+  .gbox{display:flex;justify-content:center;min-height:44px}
+  .sbtn{display:flex;align-items:center;justify-content:center;gap:10px;height:44px;border-radius:6px;border:0;font:inherit;font-size:.97rem;font-weight:700;cursor:pointer;width:100%}
+  .sbtn svg{width:18px;height:18px;flex:none}
+  .naver{background:#03C75A;color:#fff}
+  .naver:hover{background:#02b351}
+  .kakao{background:#FEE500;color:rgba(0,0,0,.85)}
+  .kakao:hover{background:#f5dc00}
+  .sbtn[disabled]{opacity:.45;cursor:not-allowed}
+  .msg{min-height:1.4em;margin:18px 0 0;font-size:.9rem;color:var(--muted)}
+  .msg.err{color:#C62828}
+  .foot{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);line-height:1.7}
+  .foot a{color:var(--muted)}
+  .back{display:inline-block;margin-top:10px;font-size:.85rem;color:var(--navy)}
+</style>
+</head>
+<body>
+<main class="card">
+  <img class="logo" src="assets/logo.png" alt="가온연구소">
+  <h1>가온 통합 로그인</h1>
+  <p class="sub">한 번 로그인하면 가온연구소 홈페이지·게임·<br>AOM 법규검토에서 내 기록을 이어 씁니다.</p>
+  <div class="opts">
+    <div class="gbox" id="g"></div>
+    <button type="button" class="sbtn naver" id="nv"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M15.6 12.8 8.2 2H2v20h6.4V11.2L15.8 22H22V2h-6.4z"/></svg>네이버 로그인</button>
+    <button type="button" class="sbtn kakao" id="kk"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#000" d="M12 3C6.5 3 2 6.5 2 10.8c0 2.8 1.9 5.3 4.7 6.6l-1 3.7c-.1.3.3.6.6.4l4.4-2.9c.4 0 .9.1 1.3.1 5.5 0 10-3.5 10-7.9S17.5 3 12 3z"/></svg>카카오 로그인</button>
+  </div>
+  <p class="msg" id="msg" role="status"></p>
+  <div class="foot">
+    로그인 시 서비스 식별용 고유번호와 별명만 저장합니다.<br>
+    <a href="privacy">개인정보처리방침</a> · <a href="terms">이용약관</a><br>
+    <a class="back" id="back" href="/">← 돌아가기</a>
+  </div>
+</main>
+<script>
+(function(){
+  'use strict';
+  var ORIGIN = location.origin, CB = ORIGIN + '/login';
+  var msg = document.getElementById('msg');
+  function say(t, err){ msg.textContent = t; msg.className = 'msg' + (err ? ' err' : ''); }
+  function ss(k, v){ try{ if(v === undefined) return sessionStorage.getItem(k); if(v === null) sessionStorage.removeItem(k); else sessionStorage.setItem(k, v); }catch(e){ return null; } }
+  function rand(){ var a = new Uint8Array(16); crypto.getRandomValues(a); return Array.prototype.map.call(a, function(x){ return ('0'+x.toString(16)).slice(-2); }).join(''); }
+
+  var CONF = null;
+  // 돌아갈 주소: 허용된 사이트만
+  function safeReturn(u, origins){
+    try{ var x = new URL(u, ORIGIN); if (origins.indexOf(x.origin) >= 0) return x.href.split('#')[0]; }catch(e){}
+    return ORIGIN + '/';
+  }
+  var qs = new URLSearchParams(location.search);
+  if (qs.get('return')) ss('gl_return', qs.get('return'));
+
+  function finish(j){
+    try{ localStorage.setItem('gaon_token', j.token); localStorage.setItem('gaon_user', JSON.stringify(j.user)); }catch(e){}
+    var back = safeReturn(ss('gl_return') || '/', CONF.returnOrigins);
+    ss('gl_return', null); ss('gl_state', null);
+    say(j.user.name + ' 님, 환영합니다. 이동 중…');
+    location.replace(back + '#gaon_token=' + j.token);
+  }
+  function post(path, body){
+    say('로그인 확인 중…');
+    return fetch('/api/auth/' + path, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) })
+      .then(function(r){ return r.json().then(function(j){ if(!r.ok) throw new Error(j.error || '로그인 실패'); return j; }); })
+      .then(finish)
+      .catch(function(e){ say(e.message + ' — 다시 시도해 주십시오.', true); });
+  }
+
+  fetch('/api/auth/config').then(function(r){ return r.json(); }).then(function(c){
+    CONF = c;
+    document.getElementById('back').href = safeReturn(ss('gl_return') || '/', c.returnOrigins);
+
+    // 1) 네이버에서 돌아온 경우 (#access_token=…)
+    var h = new URLSearchParams((location.hash || '').slice(1));
+    if (h.get('access_token')) {
+      var st = h.get('state'); history.replaceState(null, '', location.pathname);
+      if (!st || st !== ss('gl_state')) return say('보안 확인에 실패했습니다. 다시 로그인해 주십시오.', true);
+      return post('naver', { accessToken: h.get('access_token') });
+    }
+    // 2) 카카오에서 돌아온 경우 (?code=…)
+    if (qs.get('code')) {
+      var st2 = qs.get('state'); history.replaceState(null, '', location.pathname);
+      if (!st2 || st2 !== ss('gl_state')) return say('보안 확인에 실패했습니다. 다시 로그인해 주십시오.', true);
+      return post('kakao', { code: qs.get('code'), redirectUri: c.kakaoRedirect });
+    }
+    if (qs.get('error') || h.get('error')) say('로그인이 취소되었습니다.', true);
+
+    // 구글 버튼
+    var gs = document.createElement('script');
+    gs.src = 'https://accounts.google.com/gsi/client'; gs.async = true;
+    gs.onload = function(){
+      google.accounts.id.initialize({ client_id: c.google, callback: function(res){ post('google', { credential: res.credential }); }, ux_mode: 'popup' });
+      google.accounts.id.renderButton(document.getElementById('g'), { theme:'outline', size:'large', text:'signin_with', shape:'rectangular', locale:'ko', width: Math.min(336, document.getElementById('g').offsetWidth || 336) });
+    };
+    document.head.appendChild(gs);
+
+    // 네이버 버튼
+    document.getElementById('nv').onclick = function(){
+      var s = 'nv' + rand(); ss('gl_state', s);
+      location.href = 'https://nid.naver.com/oauth2.0/authorize?response_type=token&client_id=' + encodeURIComponent(c.naver) + '&redirect_uri=' + encodeURIComponent(CB) + '&state=' + s;
+    };
+    // 카카오 버튼
+    var kk = document.getElementById('kk');
+    if (!c.kakao) { kk.disabled = true; kk.lastChild.textContent = '카카오 로그인 (준비 중)'; }
+    else kk.onclick = function(){
+      var s = 'kk' + rand(); ss('gl_state', s);
+      location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=' + encodeURIComponent(c.kakao) + '&redirect_uri=' + encodeURIComponent(c.kakaoRedirect) + '&state=' + s;
+    };
+  }).catch(function(){ say('잠시 후 다시 시도해 주십시오.', true); });
+})();
+</script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 import { DurableObject } from "cloudflare:workers";
 import { BOOKING } from "./booking-config.js";
+import { handleAuth } from "./auth.js";
+export { Accounts } from "./auth.js";
 import { HttpError, randInt, CODE_CHARS, MAX_PLAYERS, ROOM_TTL, tick, apply, view, makePlayer } from "../public/games/jjan-playground/engine.js";
 
 const ONLINE_MS = 9000;
@@ -144,6 +146,7 @@ const json = (data, status = 200) => new Response(JSON.stringify(data), { status
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname.startsWith("/api/auth/")) return handleAuth(request, env);
     if (url.pathname === "/api/booking") {
       if (request.method !== "GET" && request.method !== "POST") return json({ error: "지원하지 않는 요청입니다." }, 405);
       const len = Number(request.headers.get("content-length") || 0);

@@ -33,11 +33,17 @@ export class Accounts extends DurableObject {
       const token = rand(32);
       sql.exec(`INSERT INTO sessions (token, uid, exp) VALUES (?,?,?)`, token, id, t + SESSION_DAYS * 864e5);
       sql.exec(`DELETE FROM sessions WHERE exp < ?`, t);
+      // 1년 이상 미이용 회원 파기 (개인정보처리방침)
+      const old = t - 365 * 864e5;
+      sql.exec(`DELETE FROM data WHERE uid IN (SELECT id FROM users WHERE last < ?)`, old);
+      sql.exec(`DELETE FROM sessions WHERE uid IN (SELECT id FROM users WHERE last < ?)`, old);
+      sql.exec(`DELETE FROM users WHERE last < ?`, old);
       return Response.json({ token, user: { id, provider, name } });
     }
     const token = url.searchParams.get("token") || "";
     const s = sql.exec(`SELECT s.uid, u.provider, u.name FROM sessions s JOIN users u ON u.id = s.uid WHERE s.token=? AND s.exp > ?`, token, t).toArray()[0];
     if (!s) return Response.json({ error: "로그인이 필요합니다." }, { status: 401 });
+    sql.exec(`UPDATE users SET last=? WHERE id=?`, t, s.uid);
     if (op === "me") return Response.json({ user: { id: s.uid, provider: s.provider, name: s.name } });
     if (op === "logout") { sql.exec(`DELETE FROM sessions WHERE token=?`, token); return Response.json({ ok: true }); }
     if (op === "withdraw") {
@@ -132,7 +138,7 @@ export async function handleAuth(request, env) {
       if (path === "kakao") who = await verifyKakao(String(b.code || ""), String(b.redirectUri || ""));
       return call("login", {}, { method: "POST", body: JSON.stringify({ provider: path, ...who }) });
     }
-    if (path === "config") return reply({ google: AUTH.google.clientId, naver: AUTH.naver.clientId, kakao: AUTH.kakao.jsKey ? AUTH.kakao.restKey : "", returnOrigins: AUTH.allowedOrigins });
+    if (path === "config") return reply({ google: AUTH.google.clientId, naver: AUTH.naver.clientId, kakao: AUTH.kakao.restKey, kakaoRedirect: AUTH.kakao.redirectUri, returnOrigins: AUTH.allowedOrigins });
     if (path === "me" && request.method === "GET") return call("me", { token });
     if (path === "logout" && request.method === "POST") return call("logout", { token });
     if (path === "withdraw" && request.method === "POST") return call("withdraw", { token });
