@@ -7,6 +7,5 @@ export const AUTH = {
   // 로그인 후 되돌아갈 수 있는 사이트
   allowedOrigins: [
     "https://gaonlab.gdistyle.workers.dev",
-    "https://aom-law-review.gdistyle.workers.dev",
   ],
 };
