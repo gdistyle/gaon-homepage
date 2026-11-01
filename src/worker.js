@@ -151,6 +151,12 @@ export default {
       if (request.method !== "GET" && request.method !== "POST") return json({ error: "지원하지 않는 요청입니다." }, 405);
       const len = Number(request.headers.get("content-length") || 0);
       if (len > 4000) return json({ error: "내용이 너무 깁니다." }, 413);
+      if (request.method === "POST") {
+        // 상담 예약은 로그인 회원만
+        const tok = (request.headers.get("Authorization") || "").replace(/^Bearer\s+/i, "");
+        const me = tok ? await env.ACCOUNTS.get(env.ACCOUNTS.idFromName("gaon-accounts")).fetch("https://accounts/?op=me&token=" + encodeURIComponent(tok)) : null;
+        if (!me || !me.ok) return json({ error: "상담 예약은 로그인 후 이용할 수 있습니다." }, 401);
+      }
       try { return await env.BOOKING.get(env.BOOKING.idFromName("gaon")).fetch(request); }
       catch { return json({ error: "잠시 후 다시 시도해 주십시오." }, 500); }
     }

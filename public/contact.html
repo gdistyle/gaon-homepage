@@ -42,7 +42,7 @@
 <main id="main">
 <section class="banner" style="background-image:url(assets/img/whiteboard.jpg)"><div class="wrap"><h1>상담문의</h1><p class="ben">CONTACT</p><p class="bsub">전화가 가장 빠릅니다</p></div></section>
 <section class="sec" id="booking" style="padding-top:64px"><div class="wrap">
-  <div class="head5"><div><h2>상담 신청</h2><p class="bk-lead">날짜와 시간을 골라 예약하시거나, 날짜 없이 문의만 남기실 수 있습니다.</p></div></div>
+  <div class="head5"><div><h2>상담 신청</h2><p class="bk-lead">날짜와 시간을 골라 예약하시거나(간편 로그인 필요), 로그인 없이 문의만 남기실 수 있습니다.</p></div></div>
   <div class="bk">
     <div class="bk-left">
       <div class="bk-cal" id="bkCal" aria-label="예약 달력">
@@ -207,6 +207,8 @@
     if(busy||v('bHoney')) return;
     var book=mode==='book';
     if(book&&(!sel||!selTime)){say('달력에서 날짜와 시간을 선택해 주십시오.','bad');return;}
+    var tok=''; try{tok=localStorage.getItem('gaon_token')||'';}catch(e){}
+    if(book&&!tok){say('상담 예약은 로그인 후 이용할 수 있습니다. 로그인 화면으로 이동합니다… (전화·카톡 상담은 로그인 없이 가능)','wait');setTimeout(function(){location.href='/login?return='+encodeURIComponent(location.href.split('#')[0]);},1200);return;}
     if(!v('b1')&&!v('b2')){say('회사명이나 담당자 이름을 적어 주십시오.','bad');$('b1').focus();return;}
     if(!v('b3')&&!v('b4')){say('연락처나 이메일 중 하나는 적어 주십시오.','bad');$('b3').focus();return;}
     if(v('b4')&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('b4'))){say('이메일 형식을 확인해 주십시오.','bad');$('b4').focus();return;}
@@ -216,8 +218,8 @@
     var d={company:v('b1'),name:v('b2'),phone:v('b3'),email:v('b4'),mode:v('b5'),topic:v('b6'),memo:v('b7')};
     var job;
     if(book){ d.date=sel; d.time=selTime;
-      job=fetch('/api/booking',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
-        .then(function(r){return r.json().then(function(j){if(!r.ok||!j.ok) throw new Error(j.error||'');});})
+      job=fetch('/api/booking',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+tok},body:JSON.stringify(d)})
+        .then(function(r){return r.json().then(function(j){if(r.status===401){try{localStorage.removeItem('gaon_token');localStorage.removeItem('gaon_user');}catch(e){} throw new Error('로그인이 만료되었습니다. 다시 로그인한 뒤 예약해 주십시오.');} if(!r.ok||!j.ok) throw new Error(j.error||'');});})
         .then(function(){ mail(d).catch(function(){}); done(d); })
         .catch(function(e){ say(e.message||'예약하지 못했습니다. 잠시 후 다시 시도하시거나 전화 주십시오.','bad'); load(function(){ if(sel) drawTimes(); }); });
     } else {
