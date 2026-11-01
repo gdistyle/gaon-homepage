@@ -1930,3 +1930,16 @@ p,li,dd,span,small{font-weight:inherit}
 .bk-done .fbtns{justify-content:center}
 @media (max-width:900px){.bk{grid-template-columns:1fr;gap:20px}.bk-cal,.bk-side.form{padding:20px}}
 @media (max-width:420px){.bk-times{grid-template-columns:repeat(2,minmax(0,1fr))}.bk-week,.bk-days{gap:4px}.bk-d{font-size:.92rem;border-radius:8px}}
+
+.bk-left{display:grid;gap:20px}
+.bk-info.cbox{padding:28px}
+.bk-info .qr{margin-top:22px;padding-top:20px}
+.bk-cal.dim{opacity:.5}
+.bk-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:var(--r-s);background:var(--mist);margin-bottom:22px}
+.bk-tabs button{font:inherit;font-size:1rem;font-weight:700;padding:12px 8px;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer}
+.bk-tabs button.on{background:var(--gold);color:#0B1736}
+.bk-side .fnote{margin-top:14px;font-size:.86rem;color:var(--muted);word-break:keep-all}
+
+.form .frow.one{grid-template-columns:1fr}
+.form .fitem[hidden]{display:none}
+@media (max-width:900px){.bk-left{display:contents}.bk-cal{order:1}.bk-side{order:2}.bk-info{order:3}}
