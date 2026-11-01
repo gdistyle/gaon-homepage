@@ -1888,3 +1888,45 @@ p,li,dd,span,small{font-weight:inherit}
   .float-cta a.kakao,.float-cta a+a.kakao{background:#FEE500;color:#191919}
   .float-cta a.kakao svg,.float-cta a+a.kakao svg{color:#191919}
 }
+
+/* ---- 상담 예약 달력 ---- */
+.bk-lead{color:var(--muted);margin-top:6px}
+.bk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:32px;align-items:start;margin-top:0}
+.bk-cal{border:1px solid var(--line);border-radius:var(--r-l);background:var(--card);padding:28px;box-shadow:var(--sh-2)}
+.bk-mhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.bk-mhead b{font-size:1.25rem;letter-spacing:-.01em}
+.bk-nav{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer}
+.bk-nav:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
+.bk-nav:disabled{opacity:.3;cursor:default}
+.bk-week,.bk-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;text-align:center}
+.bk-week span{font-size:.82rem;font-weight:700;color:var(--muted);padding-bottom:6px}
+.bk-week .sun{color:#FF8A73}.bk-week .sat{color:#8FB4FF}
+.bk-d{aspect-ratio:1;display:grid;place-items:center;border-radius:10px;font-size:1rem;font-weight:650;border:1px solid transparent;font-family:inherit}
+.bk-d.off{color:var(--faint);opacity:.45}
+.bk-d.on{background:var(--co-tint);color:var(--ink);cursor:pointer;border-color:var(--co-tint-2)}
+.bk-d.on:hover{border-color:var(--gold)}
+.bk-d.sel{background:var(--gold);color:#0B1736;border-color:var(--gold)}
+.bk-d.bk-today{box-shadow:inset 0 0 0 1px var(--muted)}
+.bk-d.sun.off{color:#FF8A73}
+.bk-legend{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:.84rem;color:var(--muted);margin-top:16px}
+.bk-legend .dot{display:inline-block;width:12px;height:12px;border-radius:3px;margin-left:6px}
+.bk-legend .dot:first-child{margin-left:0}
+.bk-legend .dot.on{background:var(--co-tint);border:1px solid var(--co-tint-2)}
+.bk-legend .dot.off{background:transparent;border:1px solid var(--line)}
+.bk-side.form{padding:28px}
+.bk-date{font-size:1.2rem;font-weight:700;margin-bottom:16px;word-break:keep-all}
+.bk-times{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:22px}
+.bk-t{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 6px;border-radius:var(--r-s);border:1px solid var(--line);background:var(--mist);color:var(--ink);font:inherit;font-size:1.05rem;font-weight:700;cursor:pointer}
+.bk-t small{font-size:.76rem;font-weight:600;color:var(--muted)}
+.bk-t:hover:not(.off){border-color:var(--gold)}
+.bk-t.sel{background:var(--gold);border-color:var(--gold);color:#0B1736}
+.bk-t.sel small{color:#0B1736}
+.bk-t.off{opacity:.4;cursor:default;text-decoration:line-through}
+.bk-empty{grid-column:1/-1;color:var(--muted);font-size:.95rem;word-break:keep-all}
+.bk-done{text-align:center;padding:24px 0}
+.bk-ok{font-size:1.4rem;font-weight:800;color:var(--ok)}
+.bk-when{font-size:1.15rem;font-weight:700;margin-top:10px}
+.bk-note{color:var(--muted);font-size:.92rem;margin:12px 0 20px;word-break:keep-all}
+.bk-done .fbtns{justify-content:center}
+@media (max-width:900px){.bk{grid-template-columns:1fr;gap:20px}.bk-cal,.bk-side.form{padding:20px}}
+@media (max-width:420px){.bk-times{grid-template-columns:repeat(2,minmax(0,1fr))}.bk-week,.bk-days{gap:4px}.bk-d{font-size:.92rem;border-radius:8px}}

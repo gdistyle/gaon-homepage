@@ -1,4 +1,5 @@
 import { DurableObject } from "cloudflare:workers";
+import { BOOKING } from "./booking-config.js";
 import { HttpError, randInt, CODE_CHARS, MAX_PLAYERS, ROOM_TTL, tick, apply, view, makePlayer } from "../public/games/jjan-playground/engine.js";
 
 const ONLINE_MS = 9000;
@@ -86,11 +87,70 @@ export class Room extends DurableObject {
   }
 }
 
+// ---- 상담 예약 저장소 ----
+const KST = 9 * 3600 * 1000;
+const ymd = (ms) => new Date(ms + KST).toISOString().slice(0, 10);
+const addDays = (d, n) => ymd(Date.parse(d + "T00:00:00Z") - KST + n * 86400000 + 12 * 3600 * 1000);
+const dow = (d) => new Date(d + "T00:00:00Z").getUTCDay();
+const clip = (v, n) => String(v ?? "").trim().slice(0, n);
+
+function slotOpen(date, time, now) {
+  const C = BOOKING;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !C.times.includes(time)) return false;
+  const today = ymd(now);
+  if (date < addDays(today, C.minLeadDays) || date > addDays(today, C.maxDays)) return false;
+  if (!C.days.includes(dow(date)) || C.holidays.includes(date)) return false;
+  if (C.blocked.includes(date) || C.blocked.includes(date + " " + time)) return false;
+  return true;
+}
+
+export class Booking extends DurableObject {
+  async sync() {
+    const done = (await this.ctx.storage.get("freedDone")) || [];
+    const todo = BOOKING.freed.filter((k) => !done.includes(k));
+    if (!todo.length) return;
+    for (const k of todo) await this.ctx.storage.delete("s:" + k);
+    await this.ctx.storage.put("freedDone", done.concat(todo));
+  }
+  async fetch(request) {
+    const now = Date.now();
+    await this.sync();
+    if (request.method === "GET") {
+      const all = await this.ctx.storage.list({ prefix: "s:" });
+      const today = ymd(now);
+      const booked = [...all.keys()].map((k) => k.slice(2)).filter((k) => k.slice(0, 10) >= today);
+      const { days, times, minLeadDays, maxDays, holidays, blocked, modes } = BOOKING;
+      return json({ today, booked, days, times, minLeadDays, maxDays, holidays, blocked, modes });
+    }
+    let b; try { b = JSON.parse(await request.text()); } catch { return json({ error: "요청을 이해하지 못했습니다." }, 400); }
+    const date = clip(b.date, 10), time = clip(b.time, 5);
+    if (!slotOpen(date, time, now)) return json({ error: "선택하신 시간은 예약할 수 없습니다. 다른 시간을 골라 주십시오." }, 409);
+    const name = clip(b.name, 40), company = clip(b.company, 60), phone = clip(b.phone, 30), email = clip(b.email, 80);
+    if (!(name || company) || !(phone || email)) return json({ error: "이름(회사명)과 연락처를 적어 주십시오." }, 400);
+    const ip = request.headers.get("cf-connecting-ip") || "-";
+    const rk = "r:" + ip + ":" + ymd(now);
+    const cnt = (await this.ctx.storage.get(rk)) || 0;
+    if (cnt >= 5) return json({ error: "오늘은 더 이상 예약할 수 없습니다. 전화로 문의해 주십시오." }, 429);
+    const key = "s:" + date + " " + time;
+    if (await this.ctx.storage.get(key)) return json({ error: "방금 다른 분이 예약한 시간입니다. 다른 시간을 골라 주십시오." }, 409);
+    await this.ctx.storage.put(key, { name, company, phone, email, mode: clip(b.mode, 20), topic: clip(b.topic, 40), at: now });
+    await this.ctx.storage.put(rk, cnt + 1);
+    return json({ ok: true, date, time });
+  }
+}
+
 const json = (data, status = 200) => new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/api/booking") {
+      if (request.method !== "GET" && request.method !== "POST") return json({ error: "지원하지 않는 요청입니다." }, 405);
+      const len = Number(request.headers.get("content-length") || 0);
+      if (len > 4000) return json({ error: "내용이 너무 깁니다." }, 413);
+      try { return await env.BOOKING.get(env.BOOKING.idFromName("gaon")).fetch(request); }
+      catch { return json({ error: "잠시 후 다시 시도해 주십시오." }, 500); }
+    }
     if (url.pathname !== "/api/game") return new Response("Not found", { status: 404 });
     if (request.method !== "GET" && request.method !== "POST") return json({ error: "지원하지 않는 요청이에요." }, 405);
     try {
